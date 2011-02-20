@@ -1,0 +1,85 @@
+C:\Users\azur3\Documents\Visual Studio 2008\Projects\Splain_3_BASS\WindowsFormsApplication1\bin\Debug\SplainShoutCast.exe
+C:\Users\azur3\Documents\Visual Studio 2008\Projects\Splain_3_BASS\WindowsFormsApplication1\bin\Debug\SplainShoutCast.pdb
+C:\Users\azur3\Documents\Visual Studio 2008\Projects\Splain_3_BASS\WindowsFormsApplication1\bin\Debug\Bass.Net.dll
+C:\Users\azur3\Documents\Visual Studio 2008\Projects\Splain_3_BASS\WindowsFormsApplication1\bin\Debug\SplainHLIB.dll
+C:\Users\azur3\Documents\Visual Studio 2008\Projects\Splain_3_BASS\WindowsFormsApplication1\bin\Debug\SplainHLIB.pdb
+C:\Users\azur3\Documents\Visual Studio 2008\Projects\Splain_3_BASS\WindowsFormsApplication1\bin\Debug\Bass.Net.xml
+C:\Users\azur3\Documents\Visual Studio 2008\Projects\Splain_3_BASS\WindowsFormsApplication1\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\azur3\Documents\Visual Studio 2008\Projects\Splain_3_BASS\WindowsFormsApplication1\obj\Debug\SplainNET.Editor.resources
+C:\Users\azur3\Documents\Visual Studio 2008\Projects\Splain_3_BASS\WindowsFormsApplication1\obj\Debug\SplainNET.Form1.resources
+C:\Users\azur3\Documents\Visual Studio 2008\Projects\Splain_3_BASS\WindowsFormsApplication1\obj\Debug\SplainNET.Properties.Resources.resources
+C:\Users\azur3\Documents\Visual Studio 2008\Projects\Splain_3_BASS\WindowsFormsApplication1\obj\Debug\SplainNET.csproj.GenerateResource.Cache
+C:\Users\azur3\Documents\Visual Studio 2008\Projects\Splain_3_BASS\WindowsFormsApplication1\obj\Debug\SplainShoutCast.exe
+C:\Users\azur3\Documents\Visual Studio 2008\Projects\Splain_3_BASS\WindowsFormsApplication1\obj\Debug\SplainShoutCast.pdb
+C:\Users\Azure\Documents\Visual Studio 2008\Projects\Splain_3_BASS\WindowsFormsApplication1\bin\Debug\SplainShoutCast.exe
+C:\Users\Azure\Documents\Visual Studio 2008\Projects\Splain_3_BASS\WindowsFormsApplication1\bin\Debug\SplainShoutCast.pdb
+C:\Users\Azure\Documents\Visual Studio 2008\Projects\Splain_3_BASS\WindowsFormsApplication1\bin\Debug\Bass.Net.dll
+C:\Users\Azure\Documents\Visual Studio 2008\Projects\Splain_3_BASS\WindowsFormsApplication1\bin\Debug\libSplain.dll
+C:\Users\Azure\Documents\Visual Studio 2008\Projects\Splain_3_BASS\WindowsFormsApplication1\bin\Debug\libSplain.pdb
+C:\Users\Azure\Documents\Visual Studio 2008\Projects\Splain_3_BASS\WindowsFormsApplication1\bin\Debug\Bass.Net.xml
+C:\Users\Azure\Documents\Visual Studio 2008\Projects\Splain_3_BASS\WindowsFormsApplication1\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Azure\Documents\Visual Studio 2008\Projects\Splain_3_BASS\WindowsFormsApplication1\obj\Debug\SplainNET.Editor.resources
+C:\Users\Azure\Documents\Visual Studio 2008\Projects\Splain_3_BASS\WindowsFormsApplication1\obj\Debug\SplainNET.Form1.resources
+C:\Users\Azure\Documents\Visual Studio 2008\Projects\Splain_3_BASS\WindowsFormsApplication1\obj\Debug\SplainNET.Properties.Resources.resources
+C:\Users\Azure\Documents\Visual Studio 2008\Projects\Splain_3_BASS\WindowsFormsApplication1\obj\Debug\SplainNET.csproj.GenerateResource.Cache
+C:\Users\Azure\Documents\Visual Studio 2008\Projects\Splain_3_BASS\WindowsFormsApplication1\obj\Debug\SplainShoutCast.exe
+C:\Users\Azure\Documents\Visual Studio 2008\Projects\Splain_3_BASS\WindowsFormsApplication1\obj\Debug\SplainShoutCast.pdb
+C:\Users\Chester\Desktop\YAMPi.Net\WindowsFormsApplication1\bin\Debug\SplainNET.exe
+C:\Users\Chester\Desktop\YAMPi.Net\WindowsFormsApplication1\bin\Debug\SplainNET.pdb
+C:\Users\Chester\Desktop\YAMPi.Net\WindowsFormsApplication1\bin\Debug\libDomingo.dll
+C:\Users\Chester\Desktop\YAMPi.Net\WindowsFormsApplication1\bin\Debug\Bass.Net.dll
+C:\Users\Chester\Desktop\YAMPi.Net\WindowsFormsApplication1\bin\Debug\taglib-sharp.dll
+C:\Users\Chester\Desktop\YAMPi.Net\WindowsFormsApplication1\bin\Debug\libDomingo.pdb
+C:\Users\Chester\Desktop\YAMPi.Net\WindowsFormsApplication1\bin\Debug\Bass.Net.xml
+C:\Users\Chester\Desktop\YAMPi.Net\WindowsFormsApplication1\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Chester\Desktop\YAMPi.Net\WindowsFormsApplication1\obj\Debug\SplainNET.Editor.resources
+C:\Users\Chester\Desktop\YAMPi.Net\WindowsFormsApplication1\obj\Debug\SplainNET.Form1.resources
+C:\Users\Chester\Desktop\YAMPi.Net\WindowsFormsApplication1\obj\Debug\SplainNET.Properties.Resources.resources
+C:\Users\Chester\Desktop\YAMPi.Net\WindowsFormsApplication1\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Users\Chester\Desktop\YAMPi.Net\WindowsFormsApplication1\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Users\Chester\Desktop\YAMPi.Net\WindowsFormsApplication1\obj\Debug\SplainNET.exe
+C:\Users\Chester\Desktop\YAMPi.Net\WindowsFormsApplication1\obj\Debug\SplainNET.pdb
+C:\Users\Chester\Desktop\YAMPi.Net\SplainNET\obj\Debug\SplainNET.exe
+C:\Users\Chester\Desktop\YAMPi.Net\SplainNET\obj\Debug\SplainNET.pdb
+C:\Users\Chester\Desktop\YAMPi.Net\SplainNET\bin\Debug\SplainNET.exe
+C:\Users\Chester\Desktop\YAMPi.Net\SplainNET\bin\Debug\SplainNET.pdb
+C:\Users\Chester\Desktop\YAMPi.Net\SplainNET\bin\Debug\libDomingo.dll
+C:\Users\Chester\Desktop\YAMPi.Net\SplainNET\bin\Debug\Bass.Net.dll
+C:\Users\Chester\Desktop\YAMPi.Net\SplainNET\bin\Debug\taglib-sharp.dll
+C:\Users\Chester\Desktop\YAMPi.Net\SplainNET\bin\Debug\libDomingo.pdb
+C:\Users\Chester\Desktop\YAMPi.Net\SplainNET\bin\Debug\Bass.Net.xml
+C:\Users\Chester\Desktop\YAMPi.Net\SplainNET\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Chester\Desktop\YAMPi.Net\SplainNET\obj\Debug\SplainNET.Editor.resources
+C:\Users\Chester\Desktop\YAMPi.Net\SplainNET\obj\Debug\SplainNET.Form1.resources
+C:\Users\Chester\Desktop\YAMPi.Net\SplainNET\obj\Debug\SplainNET.Properties.Resources.resources
+C:\Users\Chester\Desktop\YAMPi.Net\SplainNET\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Users\Chester\Desktop\YAMPi.Net\SplainNET\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Users\Chester\Desktop\YAMPi.Net\SplainNET\bin\Debug\AudioLib\bass.dll
+C:\Users\Chester\Desktop\YAMPi.Net\SplainNET\bin\Debug\AudioLib\basswma.dll
+C:\Users\Chester\Desktop\YAMPi.Net\SplainNET\bin\Debug\AudioLib\bass_aac.dll
+C:\Users\Chester\Desktop\YAMPi.Net\SplainNET\bin\Debug\AudioLib\basscd.dll
+C:\Users\Chester\Desktop\YAMPi.Net\SplainNET\bin\Debug\AudioLib\bassflac.dll
+C:\Users\Chester\Desktop\YAMPi.Net\SplainNET\bin\Debug\AudioLib\bass_ac3.dll
+C:\Users\Chester\Desktop\YAMPi.Net\SplainNET\bin\Debug\AudioLib\bass_ape.dll
+C:\Users\Chester\Desktop\YAMPi.Net\SplainNET\bin\Debug\AudioLib\bass_mpc.dll
+C:\dev\YAMP_SRC\SplainNET\bin\Debug\AudioLib\bass.dll
+C:\dev\YAMP_SRC\SplainNET\bin\Debug\AudioLib\bassflac.dll
+C:\dev\YAMP_SRC\SplainNET\bin\Debug\AudioLib\basswma.dll
+C:\dev\YAMP_SRC\SplainNET\bin\Debug\AudioLib\bass_aac.dll
+C:\dev\YAMP_SRC\SplainNET\bin\Debug\AudioLib\bass_ac3.dll
+C:\dev\YAMP_SRC\SplainNET\bin\Debug\AudioLib\bass_ape.dll
+C:\dev\YAMP_SRC\SplainNET\bin\Debug\AudioLib\bass_mpc.dll
+C:\dev\YAMP_SRC\SplainNET\bin\Debug\SplainNET.exe
+C:\dev\YAMP_SRC\SplainNET\bin\Debug\SplainNET.pdb
+C:\dev\YAMP_SRC\SplainNET\bin\Debug\libIsh.dll
+C:\dev\YAMP_SRC\SplainNET\bin\Debug\taglib-sharp.dll
+C:\dev\YAMP_SRC\SplainNET\bin\Debug\Bass.Net.dll
+C:\dev\YAMP_SRC\SplainNET\bin\Debug\Bass.Net.xml
+C:\dev\YAMP_SRC\SplainNET\bin\Debug\libIsh.pdb
+C:\dev\YAMP_SRC\SplainNET\obj\Debug\ResolveAssemblyReference.cache
+C:\dev\YAMP_SRC\SplainNET\obj\Debug\SplainNET.Editor.resources
+C:\dev\YAMP_SRC\SplainNET\obj\Debug\SplainNET.Form1.resources
+C:\dev\YAMP_SRC\SplainNET\obj\Debug\SplainNET.Properties.Resources.resources
+C:\dev\YAMP_SRC\SplainNET\obj\Debug\SplainNET.csproj.GenerateResource.Cache
+C:\dev\YAMP_SRC\SplainNET\obj\Debug\SplainNET.exe
+C:\dev\YAMP_SRC\SplainNET\obj\Debug\SplainNET.pdb

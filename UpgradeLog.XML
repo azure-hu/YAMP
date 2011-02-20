@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="YAMP_VCS9">
+</Property><Property Name="Solution File" Value="D:\dev\YAMP_SRC\YAMP_VCS9.sln">
+</Property><Property Name="User Options File" Value="D:\dev\YAMP_SRC\YAMP_VCS9.suo">
+</Property><Property Name="Date" Value="2010. november 15.">
+</Property><Property Name="Time" Value="20:28">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="YAMP_VCS9.sln" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\YAMP_VCS9.sln">
+</Event><Event ErrorLevel="0" Project="" Source="YAMP_VCS9.suo" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\YAMP_VCS9.suo">
+</Event><Event ErrorLevel="0" Project="libIsh" Source="ControlLib\libIsh.csproj" Description="Project file successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\libIsh.csproj">
+</Event><Event ErrorLevel="0" Project="libIsh" Source="ControlLib\libIsh.csproj.user" Description="Project user file successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\libIsh.csproj.user">
+</Event><Event ErrorLevel="0" Project="libIsh" Source="ControlLib\ArrayConverter.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\ArrayConverter.cs">
+</Event><Event ErrorLevel="0" Project="libIsh" Source="ControlLib\BassEngine.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\BassEngine.cs">
+</Event><Event ErrorLevel="0" Project="libIsh" Source="ControlLib\ChannelReader.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\ChannelReader.cs">
+</Event><Event ErrorLevel="0" Project="libIsh" Source="ControlLib\FireWorks.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\FireWorks.cs">
+</Event><Event ErrorLevel="0" Project="libIsh" Source="ControlLib\FusionTrackBar.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\FusionTrackBar.cs">
+</Event><Event ErrorLevel="0" Project="libIsh" Source="ControlLib\KeyInputHelper.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\KeyInputHelper.cs">
+</Event><Event ErrorLevel="0" Project="libIsh" Source="ControlLib\MBoxHelper.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\MBoxHelper.cs">
+</Event><Event ErrorLevel="0" Project="libIsh" Source="ControlLib\MediaItem.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\MediaItem.cs">
+</Event><Event ErrorLevel="0" Project="libIsh" Source="ControlLib\MessBroadcast.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\MessBroadcast.cs">
+</Event><Event ErrorLevel="0" Project="libIsh" Source="ControlLib\NativeMethods.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\NativeMethods.cs">
+</Event><Event ErrorLevel="0" Project="libIsh" Source="ControlLib\NetClass.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\NetClass.cs">
+</Event><Event ErrorLevel="0" Project="libIsh" Source="ControlLib\Properties\AssemblyInfo.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="libIsh" Source="ControlLib\TagReader.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\TagReader.cs">
+</Event><Event ErrorLevel="0" Project="libIsh" Source="ControlLib\TagProperty.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\TagProperty.cs">
+</Event><Event ErrorLevel="0" Project="libIsh" Source="ControlLib\TagReadOnly.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\TagReadOnly.cs">
+</Event><Event ErrorLevel="0" Project="libIsh" Source="ControlLib\TagReadWrite.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\TagReadWrite.cs">
+</Event><Event ErrorLevel="0" Project="libIsh" Source="ControlLib\TrackBarDrawItemEventArgs.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\TrackBarDrawItemEventArgs.cs">
+</Event><Event ErrorLevel="0" Project="libIsh" Source="ControlLib\TrackBarItemState.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\TrackBarItemState.cs">
+</Event><Event ErrorLevel="0" Project="libIsh" Source="ControlLib\TrackBarOwnerDrawnParts.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\TrackBarOwnerDrawnParts.cs">
+</Event><Event ErrorLevel="0" Project="libIsh" Source="ControlLib\TrackDrawModeEditor.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\TrackDrawModeEditor.cs">
+</Event><Event ErrorLevel="0" Project="libIsh" Source="ControlLib\TransparentPanel.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\TransparentPanel.cs">
+</Event><Event ErrorLevel="0" Project="libIsh" Source="ControlLib\AudioLib\bass.dll" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\AudioLib\bass.dll">
+</Event><Event ErrorLevel="0" Project="libIsh" Source="ControlLib\AudioLib\bassflac.dll" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\AudioLib\bassflac.dll">
+</Event><Event ErrorLevel="0" Project="libIsh" Source="ControlLib\AudioLib\basswma.dll" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\AudioLib\basswma.dll">
+</Event><Event ErrorLevel="0" Project="libIsh" Source="ControlLib\AudioLib\bass_aac.dll" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\AudioLib\bass_aac.dll">
+</Event><Event ErrorLevel="0" Project="libIsh" Source="ControlLib\AudioLib\bass_ac3.dll" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\AudioLib\bass_ac3.dll">
+</Event><Event ErrorLevel="0" Project="libIsh" Source="ControlLib\AudioLib\bass_ape.dll" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\AudioLib\bass_ape.dll">
+</Event><Event ErrorLevel="2" Project="libIsh" Source="ControlLib\AudioLib\BASS_DSHOW.DLL" Description="Failed to backup file as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\AudioLib\BASS_DSHOW.DLL">
+</Event><Event ErrorLevel="2" Project="libIsh" Source="ControlLib\AudioLib\BASS_DSHOW_FFAudio.dll" Description="Failed to backup file as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\AudioLib\BASS_DSHOW_FFAudio.dll">
+</Event><Event ErrorLevel="2" Project="libIsh" Source="ControlLib\AudioLib\BASS_DSHOW_FFmpeg.DLL" Description="Failed to backup file as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\AudioLib\BASS_DSHOW_FFmpeg.DLL">
+</Event><Event ErrorLevel="2" Project="libIsh" Source="ControlLib\AudioLib\BASS_DSHOW_FFVideo.DLL" Description="Failed to backup file as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\AudioLib\BASS_DSHOW_FFVideo.DLL">
+</Event><Event ErrorLevel="2" Project="libIsh" Source="ControlLib\AudioLib\BASS_DSHOW_Kar.dll" Description="Failed to backup file as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\AudioLib\BASS_DSHOW_Kar.dll">
+</Event><Event ErrorLevel="0" Project="libIsh" Source="ControlLib\AudioLib\bass_mpc.dll" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\ControlLib\AudioLib\bass_mpc.dll">
+</Event><Event ErrorLevel="0" Project="libIsh" Source="ControlLib\libIsh.csproj" Description="The project file does not require conversion.">
+</Event><Event ErrorLevel="3" Project="libIsh" Source="ControlLib\libIsh.csproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="SplainNET" Source="SplainNET\SplainNET.csproj" Description="Project file successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\SplainNET\SplainNET.csproj">
+</Event><Event ErrorLevel="0" Project="SplainNET" Source="SplainNET\SplainNET.csproj.user" Description="Project user file successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\SplainNET\SplainNET.csproj.user">
+</Event><Event ErrorLevel="0" Project="SplainNET" Source="SplainNET\Editor.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\SplainNET\Editor.cs">
+</Event><Event ErrorLevel="0" Project="SplainNET" Source="SplainNET\Editor.Designer.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\SplainNET\Editor.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SplainNET" Source="SplainNET\Form1.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\SplainNET\Form1.cs">
+</Event><Event ErrorLevel="0" Project="SplainNET" Source="SplainNET\Form1.Designer.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\SplainNET\Form1.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SplainNET" Source="SplainNET\Program.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\SplainNET\Program.cs">
+</Event><Event ErrorLevel="0" Project="SplainNET" Source="SplainNET\Properties\AssemblyInfo.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\SplainNET\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="SplainNET" Source="SplainNET\Properties\Resources.Designer.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\SplainNET\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SplainNET" Source="SplainNET\Properties\Settings.Designer.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\SplainNET\Properties\Settings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="SplainNET" Source="SplainNET\Properties\Settings.settings" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\SplainNET\Properties\Settings.settings">
+</Event><Event ErrorLevel="0" Project="SplainNET" Source="SplainNET\Streams.splain" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\SplainNET\Streams.splain">
+</Event><Event ErrorLevel="0" Project="SplainNET" Source="SplainNET\Resources\Icon1.ico" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\SplainNET\Resources\Icon1.ico">
+</Event><Event ErrorLevel="0" Project="SplainNET" Source="SplainNET\Editor.resx" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\SplainNET\Editor.resx">
+</Event><Event ErrorLevel="0" Project="SplainNET" Source="SplainNET\Form1.resx" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\SplainNET\Form1.resx">
+</Event><Event ErrorLevel="0" Project="SplainNET" Source="SplainNET\Properties\Resources.resx" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\SplainNET\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="SplainNET" Source="SplainNET\SplainNET.csproj" Description="The project file does not require conversion.">
+</Event><Event ErrorLevel="3" Project="SplainNET" Source="SplainNET\SplainNET.csproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\YAMP.csproj" Description="Project file successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\YAMP.csproj">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\YAMP.csproj.user" Description="Project user file successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\YAMP.csproj.user">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\AboutBox1.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\AboutBox1.cs">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\AboutBox1.Designer.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\AboutBox1.Designer.cs">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\MainWindow.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\MainWindow.cs">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\MainWindow.Designer.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\MainWindow.Designer.cs">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\plEditWnd.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\plEditWnd.cs">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\plEditWnd.Designer.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\plEditWnd.Designer.cs">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\PLParser.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\PLParser.cs">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\Program.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\Program.cs">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\Properties\AssemblyInfo.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\Properties\Resources.Designer.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\Properties\Settings.Designer.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\Properties\Settings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\tagWnd.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\tagWnd.cs">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\tagWnd.Designer.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\tagWnd.Designer.cs">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\visSetWnd.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\visSetWnd.cs">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\visSetWnd.Designer.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\visSetWnd.Designer.cs">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\yamp.Designer.cs" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\yamp.Designer.cs">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\app.config" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\app.config">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\Properties\Settings.settings" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\Properties\Settings.settings">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\NextGen_TemporaryKey.pfx" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\NextGen_TemporaryKey.pfx">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\DefaultSkin\Icon1.ico" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\DefaultSkin\Icon1.ico">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\Resources\main.bmp" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\Resources\main.bmp">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\Resources\background.bmp" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\Resources\background.bmp">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\Resources\AlbumCover.bmp" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\Resources\AlbumCover.bmp">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\Resources\ArtistIcon.bmp" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\Resources\ArtistIcon.bmp">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\Resources\TitleIcon.bmp" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\Resources\TitleIcon.bmp">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\Resources\AlbumIcon.bmp" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\Resources\AlbumIcon.bmp">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\AudioLib\bass.dll" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\AudioLib\bass.dll">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\AudioLib\bassflac.dll" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\AudioLib\bassflac.dll">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\AudioLib\basswma.dll" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\AudioLib\basswma.dll">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\AudioLib\basswv.dll" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\AudioLib\basswv.dll">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\AudioLib\bass_aac.dll" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\AudioLib\bass_aac.dll">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\AudioLib\bass_ac3.dll" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\AudioLib\bass_ac3.dll">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\AudioLib\bass_alac.dll" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\AudioLib\bass_alac.dll">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\AudioLib\bass_ape.dll" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\AudioLib\bass_ape.dll">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\AudioLib\bass_mpc.dll" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\AudioLib\bass_mpc.dll">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\AudioLib\taglib-sharp.dll" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\AudioLib\taglib-sharp.dll">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\DefaultSkin\background.bmp" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\DefaultSkin\background.bmp">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\DefaultSkin\main.bmp" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\DefaultSkin\main.bmp">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\yamp.settings" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\yamp.settings">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\AboutBox1.resx" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\AboutBox1.resx">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\MainWindow.resx" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\MainWindow.resx">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\plEditWnd.resx" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\plEditWnd.resx">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\Properties\Resources.resx" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\tagWnd.resx" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\tagWnd.resx">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\visSetWnd.resx" Description="File successfully backed up as D:\dev\YAMP_SRC\Backup\Backup\NextGen\visSetWnd.resx">
+</Event><Event ErrorLevel="0" Project="YAMP" Source="NextGen\YAMP.csproj" Description="The project file does not require conversion.">
+</Event><Event ErrorLevel="3" Project="YAMP" Source="NextGen\YAMP.csproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="" Source="YAMP_VCS9.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="YAMP_VCS9.sln" Description="Converted">
+</Event></UpgradeLog>

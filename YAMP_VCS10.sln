@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YAMP", "NextGen\YAMP.csproj", "{A23020D6-BD61-40EB-B0F3-17BD84E1464E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libIsh", "ControlLib\libIsh.csproj", "{D86D4CA2-887C-44B7-95BD-4B6310D5EDB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SplainNET", "SplainNET\SplainNET.csproj", "{1E20E937-535E-4240-80B7-36C1520BB47B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A23020D6-BD61-40EB-B0F3-17BD84E1464E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A23020D6-BD61-40EB-B0F3-17BD84E1464E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A23020D6-BD61-40EB-B0F3-17BD84E1464E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A23020D6-BD61-40EB-B0F3-17BD84E1464E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D86D4CA2-887C-44B7-95BD-4B6310D5EDB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D86D4CA2-887C-44B7-95BD-4B6310D5EDB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D86D4CA2-887C-44B7-95BD-4B6310D5EDB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D86D4CA2-887C-44B7-95BD-4B6310D5EDB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E20E937-535E-4240-80B7-36C1520BB47B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E20E937-535E-4240-80B7-36C1520BB47B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E20E937-535E-4240-80B7-36C1520BB47B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E20E937-535E-4240-80B7-36C1520BB47B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
