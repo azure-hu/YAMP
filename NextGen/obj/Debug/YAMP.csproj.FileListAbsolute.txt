@@ -27,4 +27,3 @@ C:\dev\YAMP_SRC\NextGen\obj\Debug\YAMP.exe.manifest
 C:\dev\YAMP_SRC\NextGen\obj\Debug\YAMP.application
 C:\dev\YAMP_SRC\NextGen\obj\Debug\YAMP.exe
 C:\dev\YAMP_SRC\NextGen\obj\Debug\YAMP.pdb
-C:\Users\zoi\Desktop\ishler-YAMP-5a84d6d\NextGen\bin\Debug\YAMP.exe.config

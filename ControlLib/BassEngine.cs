@@ -25,7 +25,7 @@ using Un4seen.Bass.AddOn.Ofr;
 
 #endregion
 
-namespace libIsh
+namespace libZoi
 {
     public static class BassEngine
     {

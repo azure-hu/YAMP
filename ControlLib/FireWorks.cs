@@ -5,7 +5,7 @@ using System.Drawing;
 using Un4seen.Bass;
 using Un4seen.Bass.Misc;
 
-namespace libIsh
+namespace libZoi
 {
     public static class FireWorks
     {

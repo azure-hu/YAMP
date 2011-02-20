@@ -5,7 +5,7 @@ using System.Text;
 using TagLib;
 using System.Drawing;
 
-namespace libIsh
+namespace libZoi
 {
     public static class TagReader
     {

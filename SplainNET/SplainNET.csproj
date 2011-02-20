@@ -125,9 +125,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ControlLib\libIsh.csproj">
+    <ProjectReference Include="..\ControlLib\libZoi.csproj">
       <Project>{D86D4CA2-887C-44B7-95BD-4B6310D5EDB2}</Project>
-      <Name>libIsh</Name>
+      <Name>libZoi</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

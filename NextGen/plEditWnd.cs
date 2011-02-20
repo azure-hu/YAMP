@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Diagnostics;
-using libIsh;
+using libZoi;
 using System.IO;
 using System.Threading;
 

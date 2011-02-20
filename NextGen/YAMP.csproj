@@ -16,8 +16,8 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <ManifestCertificateThumbprint>3F08CAE044AAC2D33056B80177825F05920FFF5F</ManifestCertificateThumbprint>
     <ManifestKeyFile>NextGen_TemporaryKey.pfx</ManifestKeyFile>
-    <GenerateManifests>true</GenerateManifests>
-    <SignManifests>true</SignManifests>
+    <GenerateManifests>false</GenerateManifests>
+    <SignManifests>false</SignManifests>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>3.5</OldToolsVersion>
@@ -33,10 +33,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
-    <SupportUrl>mailto:flashmark%40ymail.com</SupportUrl>
+    <SupportUrl>mailto:zoi%40hotmail.hu</SupportUrl>
     <ProductName>Yet Another Music Player</ProductName>
-    <PublisherName>IshTee %28flashmark%40ymail.com%29</PublisherName>
-    <AutorunEnabled>true</AutorunEnabled>
+    <PublisherName>zoi %28zoi%40hotmail.hu%29</PublisherName>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <DisallowUrlActivation>true</DisallowUrlActivation>
     <ApplicationRevision>42</ApplicationRevision>
     <ApplicationVersion>3.1.44.%2a</ApplicationVersion>
@@ -62,7 +62,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>YAMP_Key.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -123,6 +132,7 @@
       <DependentUpon>visSetWnd.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -146,6 +156,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>yamp.settings</DependentUpon>
     </Compile>
+    <None Include="YAMP_Key.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DefaultSkin\background.bmp" />
@@ -213,9 +224,9 @@
     </PublishFile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ControlLib\libIsh.csproj">
+    <ProjectReference Include="..\ControlLib\libZoi.csproj">
       <Project>{D86D4CA2-887C-44B7-95BD-4B6310D5EDB2}</Project>
-      <Name>libIsh</Name>
+      <Name>libZoi</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

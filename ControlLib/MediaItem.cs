@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Un4seen.Bass.AddOn.Tags;
 
-namespace libIsh
+namespace libZoi
 {
     public class MediaItem
     {

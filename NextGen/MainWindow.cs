@@ -3,7 +3,7 @@ using System.Drawing;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using libIsh;
+using libZoi;
 
 namespace YAMP
 {
@@ -37,7 +37,7 @@ namespace YAMP
             plEdit.Top = this.Top;
             plEdit.Left = this.Right + 1;
 
-            tagForm = new libIsh.tagWnd();
+            tagForm = new libZoi.tagWnd();
             tagForm.BackgroundImage = global::YAMP.Properties.Resources.background;
             tagForm.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.tagWindow_FormClosing);
 
@@ -133,7 +133,7 @@ namespace YAMP
             }
             catch (Exception x)
             {
-                libIsh.MBoxHelper.ShowWarnMsg(x, "Warning!");
+                libZoi.MBoxHelper.ShowWarnMsg(x, "Warning!");
             }
             finally
             {
@@ -631,7 +631,7 @@ namespace YAMP
         private bool dragging, playStarted;
         private Point offset;
         private plEditWnd plEdit;
-        private libIsh.tagWnd tagForm;
+        private libZoi.tagWnd tagForm;
         private string currentFile;
         private repeatOption repeat;
         private string startDir;

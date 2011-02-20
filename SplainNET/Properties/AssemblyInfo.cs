@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("SplainNET")]
 [assembly: AssemblyDescription("Internet Radio Stream Listener")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("István Zollai (zoi@hotmail.hu)")]
+[assembly: AssemblyCompany("zoi (zoi@hotmail.hu)")]
 [assembly: AssemblyProduct("Splain - Online Stream Player")]
 [assembly: AssemblyCopyright("Copyright ©  2010")]
 [assembly: AssemblyTrademark("")]

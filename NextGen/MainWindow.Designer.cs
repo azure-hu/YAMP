@@ -70,7 +70,7 @@
             this.artIco = new System.Windows.Forms.PictureBox();
             this.albIco = new System.Windows.Forms.PictureBox();
             this.titIco = new System.Windows.Forms.PictureBox();
-            this.mainLabel = new libIsh.MarqueeLabel();
+            this.mainLabel = new libZoi.MarqueeLabel();
             this.scrollTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.visualBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainSkin)).BeginInit();
@@ -682,7 +682,7 @@
         private System.Windows.Forms.PictureBox artIco;
         private System.Windows.Forms.PictureBox albIco;
         private System.Windows.Forms.PictureBox titIco;
-        private libIsh.MarqueeLabel mainLabel;
+        private libZoi.MarqueeLabel mainLabel;
         private System.Windows.Forms.Timer scrollTimer;
     }
 }

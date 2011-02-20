@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace libIsh
+namespace libZoi
 {
     public static class ArrayConv
     {

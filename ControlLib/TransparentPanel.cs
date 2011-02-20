@@ -6,7 +6,7 @@ using System.Data;
 using System.Text;
 using System.Windows.Forms;
 
-namespace libIsh
+namespace libZoi
 {
 
     public class TransparentPanel : Panel

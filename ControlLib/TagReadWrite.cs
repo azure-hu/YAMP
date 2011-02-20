@@ -6,7 +6,7 @@ using Un4seen.Bass;
 using Un4seen.Bass.AddOn;
 using Un4seen.Bass.AddOn.Tags;
 
-namespace libIsh
+namespace libZoi
 {
     [DefaultPropertyAttribute("Title")]
     public class Bass_TagReadWrite

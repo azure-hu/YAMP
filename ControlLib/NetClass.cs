@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Net;
 
-namespace libIsh
+namespace libZoi
 {
     public static class NetClass
     {

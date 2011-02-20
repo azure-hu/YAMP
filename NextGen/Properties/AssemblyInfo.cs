@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Yet Another Music Player")]
 [assembly: AssemblyDescription("Music Player with BASS Audio Engine")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("István Zollai (zoi@hotmail.hu)")]
+[assembly: AssemblyCompany("zoi (zoi@hotmail.hu)")]
 [assembly: AssemblyProduct("Yet Another Music Player")]
-[assembly: AssemblyCopyright("Copyright © FlashMark Coding, 2010")]
+[assembly: AssemblyCopyright("Copyright © Azur3 Coding, 2011")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,7 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.7.84.42")]
-[assembly: AssemblyFileVersion("1.7.84.42")]
-
-[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("TestProject1")]
+[assembly: AssemblyVersion("3.1.44.42")]
+[assembly: AssemblyFileVersion("3.1.44.42")]

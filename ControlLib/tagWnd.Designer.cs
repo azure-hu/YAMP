@@ -1,4 +1,4 @@
-﻿namespace libIsh
+﻿namespace libZoi
 {
     partial class tagWnd
     {

@@ -7,7 +7,7 @@ using Un4seen.Bass.AddOn;
 using Un4seen.Bass.AddOn.Tags;
 using TagLib;
 
-namespace libIsh
+namespace libZoi
 {
     [DefaultPropertyAttribute("Title")]
     public class TagProperty
