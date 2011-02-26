@@ -62,7 +62,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
@@ -88,18 +88,6 @@
     <Compile Include="AboutBox1.Designer.cs">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainWindow.Designer.cs">
-      <DependentUpon>MainWindow.cs</DependentUpon>
-    </Compile>
-    <Compile Include="plEditWnd.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="plEditWnd.Designer.cs">
-      <DependentUpon>plEditWnd.cs</DependentUpon>
-    </Compile>
     <Compile Include="PLParser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -107,18 +95,13 @@
       <DependentUpon>AboutBox1.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainWindow.resx">
-      <DependentUpon>MainWindow.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="plEditWnd.resx">
-      <DependentUpon>plEditWnd.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SingleUI.resx">
+      <DependentUpon>SingleUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="splash.resx">
       <DependentUpon>splash.cs</DependentUpon>
@@ -141,6 +124,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="SingleUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SingleUI.Designer.cs">
+      <DependentUpon>SingleUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SingleUI.Methods.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="splash.cs">
       <SubType>Form</SubType>

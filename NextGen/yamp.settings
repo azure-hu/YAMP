@@ -56,5 +56,8 @@
     <Setting Name="SeekBarColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">DarkTurquoise</Value>
     </Setting>
+    <Setting Name="SeekBarStyle" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

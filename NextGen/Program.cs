@@ -13,14 +13,13 @@ namespace YAMP
         static void Main()
         {
             //AppDomain.CurrentDomain.AssemblyLoad += new AssemblyLoadEventHandler(ShowAssemblies);
-            //Application.EnableVisualStyles();
+            Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
             //Application.Run(new frmSplash());
             //AppDomain.CurrentDomain.AssemblyLoad -= ShowAssemblies;
-            plEditWnd _yampPlEdit = new plEditWnd();
-            MainWindow _yampMain = new MainWindow(ref _yampPlEdit);
-            Application.Run(_yampMain);
+            SingleUI _yamp = new SingleUI();
+            Application.Run(_yamp);
         }
 
         /*private static void ShowAssemblies(object sender, AssemblyLoadEventArgs e)

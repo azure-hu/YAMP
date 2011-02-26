@@ -155,4 +155,3 @@ D:\dev\YAMP_SRC\NextGen\obj\Release\YAMP.exe.manifest
 D:\dev\YAMP_SRC\NextGen\obj\Release\YAMP.application
 D:\dev\YAMP_SRC\NextGen\obj\Release\YAMP.exe
 D:\dev\YAMP_SRC\NextGen\obj\Release\YAMP.pdb
-C:\Users\zoi\Desktop\ishler-YAMP-5a84d6d\NextGen\bin\Release\YAMP.exe.config
