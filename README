@@ -1,1 +1,15 @@
-If program stops with ArgumentException or with NullException, try rebuilding entire solution!
+This project uses:
+- Un4Seen Audio Library (aka. BASS) http://www.un4seen.com
+	copyright © 2003-2010 un4seen developments. all rights reserved.
+	BASS is free for non-commercial use.
+- BASS Add-Ons
+	All trademarks and other registered names contained in the BASS.NET package are the property of their respective owners.
+	See www.un4seen.com for details!
+- BASS.NET API
+	Copyright 2005-2009 by radio42, Author: Bernd Niedergesaess  (bn@radio42.com). All rights reserved. 
+	BASS.NET is the property of radio42 and is protected by copyright laws and international copyright treaties. BASS.NET is not sold, it is licensed.
+- TagLib# (aka taglib-sharp)
+	TagLib# is a library for reading and writing metadata in media files.
+	It is API stable, with only API additions (not changes or removals) occuring in the 2.0 series.
+	TagLib# is free/open source software, released under the LGPL.
+
