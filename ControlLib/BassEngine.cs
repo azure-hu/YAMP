@@ -35,7 +35,6 @@ namespace libZoi
         private static string supDefault;
         private static string supAll;
         private static Dictionary<int, string> plugins = new Dictionary<int, string>();
-        private static BASS_FILEPROCS _fproc;
         private static FileStream _fs;
 
         #region letoltesi proba
@@ -95,7 +94,6 @@ namespace libZoi
             else
                 return name;
         }
-
 
         /// <summary>
         /// Gets the supported file extensions.
@@ -177,20 +175,22 @@ namespace libZoi
                 {
                     Bass.BASS_Start();
                     Bass.BASS_ChannelUpdate(stream, 0);
-                    Bass.BASS_ChannelPlay(stream, true);
+                    if(!Bass.BASS_ChannelPlay(stream, true))
+                        MessageBox.Show(Bass.BASS_ErrorGetCode().ToString()); ;
                 }
 
                 if (Bass.BASS_ErrorGetCode() != BASSError.BASS_OK)
                 {
-                    throw new Exception("BASS Error on Play");
+                    throw new Exception("BASS Error on Play:" + Bass.BASS_ErrorGetCode());
                 }
 
                 if (FireWorks.IsReady)
                     FireWorks.StartDraw(stream);
                 return true;
             }
-            catch (Exception)
+            catch (Exception x)
             {
+                MBoxHelper.Whoops(x.Message);
                 return false;
             }
         }
@@ -215,7 +215,8 @@ namespace libZoi
             }
         }
 
-        public static bool ListenInternetStream(Form fm, string formTitle, string StrUrl, string StrName, int TimeOut, bool Record, string fileToRec)
+        public static bool ListenInternetStream(Form fm, string formTitle, string StrUrl, string StrName, 
+            int TimeOut, bool Record, string fileToRec)
         {
             if(fm != null)
                 fm.Text = formTitle + " # Connecting...";
@@ -351,72 +352,11 @@ namespace libZoi
 
         #endregion
 
-        #region File Processing Callbacks
-
-        private static void closeFile(IntPtr user)
-        {
-            if (_fs == null)
-                return;
-            else
-            {
-                _fs.Close();
-            }
-        }
-
-        private static long lengthFile(IntPtr user)
-        {
-            if (_fs == null)
-                return 0L;
-            return _fs.Length;
-        }
-
-        private static int readFile(IntPtr buffer, int length, IntPtr user)
-        {
-            if (_fs == null)
-                return 0;
-            try
-            {
-                // at first we need to create a byte[] with the size of the requested length
-                byte[] data = new byte[length];
-                // read the file into data
-                int bytesread = _fs.Read(data, 0, length);
-                // and now we need to copy the data to the buffer
-                // we write as many bytes as we read via the file operation
-                System.Runtime.InteropServices.Marshal.Copy(data, 0, buffer, bytesread);
-                return bytesread;
-            }
-            catch { return 0; }
-        }
-
-        private static bool seekFile(long offset, IntPtr user)
-        {
-            if (_fs == null)
-                return false;
-            try
-            {
-                long pos = _fs.Seek(offset, SeekOrigin.Begin);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        #endregion File Processing Callbacks
-
         public static void PlayInitFile(string filePath)
         {
             BASS_INFO info = Bass.BASS_GetInfo();
             BASSFlag flag = (info.speakers < 3 ? BASSFlag.BASS_AAC_STEREO | BASSFlag.BASS_AC3_DOWNMIX_2 : BASSFlag.BASS_DEFAULT)
-                | BASSFlag.BASS_STREAM_AUTOFREE;// | BASSFlag.BASS_STREAM_PRESCAN;
-
-            _fproc = new BASS_FILEPROCS(new FILECLOSEPROC(closeFile),
-                new FILELENPROC(lengthFile), new FILEREADPROC(readFile),
-                new FILESEEKPROC(seekFile));
-
-            _fs = File.OpenRead(filePath);
-
+                | BASSFlag.BASS_STREAM_AUTOFREE | BASSFlag.BASS_STREAM_PRESCAN;
 
             Format _fmt = GetFormat(filePath);
             BASSFlag _flag = BASSFlag.BASS_SAMPLE_FLOAT | BASSFlag.BASS_STREAM_AUTOFREE;
@@ -424,45 +364,19 @@ namespace libZoi
             {
                 case Format.UNSUP: MBoxHelper.ShowErrorMsg("Unsupported File Format!", "Format Error!");
                     break;
-                case Format.Default: stream = Bass.BASS_StreamCreateFileUser
-                    (BASSStreamSystem.STREAMFILE_BUFFER, _flag, _fproc, IntPtr.Zero);
-                    break;
-                case Format.AAC: stream = BassAac.BASS_AAC_StreamCreateFileUser
-                    (BASSStreamSystem.STREAMFILE_BUFFER, _flag, _fproc, IntPtr.Zero);
-                    break;
-                case Format.MP4: stream = BassAac.BASS_MP4_StreamCreateFileUser
-                    (BASSStreamSystem.STREAMFILE_BUFFER, _flag, _fproc, IntPtr.Zero);
-                    break;
-                case Format.AC3: stream = BassAc3.BASS_AC3_StreamCreateFileUser
-                    (BASSStreamSystem.STREAMFILE_BUFFER, _flag, _fproc, IntPtr.Zero);
-                    break;
-                case Format.ALAC: stream = BassAlac.BASS_ALAC_StreamCreateFileUser
-                    (BASSStreamSystem.STREAMFILE_BUFFER, _flag, _fproc, IntPtr.Zero);
-                    break;
-                case Format.APE: stream = BassApe.BASS_APE_StreamCreateFileUser
-                    (BASSStreamSystem.STREAMFILE_BUFFER, _flag, _fproc, IntPtr.Zero);
-                    break;
-                case Format.FLAC: stream = BassFlac.BASS_FLAC_StreamCreateFileUser
-                    (BASSStreamSystem.STREAMFILE_BUFFER, _flag, _fproc, IntPtr.Zero);
-                    break;
-                case Format.MPC: stream = BassMpc.BASS_MPC_StreamCreateFileUser
-                    (BASSStreamSystem.STREAMFILE_BUFFER, _flag, _fproc, IntPtr.Zero);
-                    break;
-                case Format.FROG: stream = BassOfr.BASS_OFR_StreamCreateFileUser
-                    (BASSStreamSystem.STREAMFILE_BUFFER, _flag, _fproc, IntPtr.Zero);
-                    break;
-                case Format.SPX: stream = BassSpx.BASS_SPX_StreamCreateFileUser
-                    (BASSStreamSystem.STREAMFILE_BUFFER, _flag, _fproc, IntPtr.Zero);
-                    break;
-                case Format.TTA: stream = BassTta.BASS_TTA_StreamCreateFileUser
-                    (BASSStreamSystem.STREAMFILE_BUFFER, _flag, _fproc, IntPtr.Zero);
-                    break;
-                case Format.WMA: stream = BassWma.BASS_WMA_StreamCreateFileUser
-                    (BASSStreamSystem.STREAMFILE_BUFFER, _flag, _fproc, IntPtr.Zero);
-                    break;
-                case Format.WV: stream = BassWv.BASS_WV_StreamCreateFileUser
-                    (BASSStreamSystem.STREAMFILE_BUFFER, _flag, _fproc, IntPtr.Zero);
-                    break;
+                case Format.Default: stream = Bass.BASS_StreamCreateFile(filePath, 0, 0, _flag); break;
+                case Format.AAC: stream = BassAac.BASS_AAC_StreamCreateFile(filePath, 0, 0, _flag); break;
+                case Format.MP4: stream = BassAac.BASS_MP4_StreamCreateFile(filePath, 0, 0, _flag); break;
+                case Format.AC3: stream = BassAc3.BASS_AC3_StreamCreateFile(filePath, 0, 0, _flag); break;
+                case Format.ALAC: stream = BassAlac.BASS_ALAC_StreamCreateFile(filePath, 0, 0, _flag); break;
+                case Format.APE: stream = BassApe.BASS_APE_StreamCreateFile(filePath, 0, 0, _flag); break;
+                case Format.FLAC: stream = BassFlac.BASS_FLAC_StreamCreateFile(filePath, 0, 0, _flag); break;
+                case Format.MPC: stream = BassMpc.BASS_MPC_StreamCreateFile(filePath, 0, 0, _flag); break;
+                case Format.FROG: stream = BassOfr.BASS_OFR_StreamCreateFile(filePath, 0, 0, _flag); break;
+                case Format.SPX: stream = BassSpx.BASS_SPX_StreamCreateFile(filePath, 0, 0, _flag); break;
+                case Format.TTA: stream = BassTta.BASS_TTA_StreamCreateFile(filePath, 0, 0, _flag); break;
+                case Format.WMA: stream = BassWma.BASS_WMA_StreamCreateFile(filePath, 0, 0, _flag); break;
+                case Format.WV: stream = BassWv.BASS_WV_StreamCreateFile(filePath, 0, 0, _flag); break;
             }
             if (Bass.BASS_ErrorGetCode() != BASSError.BASS_OK)
             {
@@ -627,7 +541,7 @@ namespace libZoi
         public static void Wipe()
         {
             Bass.BASS_StreamFree(stream);
-            GC.Collect();
+            System.Threading.Thread.Sleep(100);
         }
 
         internal static TAG_INFO GetTagFromFile(string _file)
