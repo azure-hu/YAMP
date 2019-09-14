@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Net;
 
-namespace libZoi
+namespace Azure.LibCollection.CS
 {
     public static class NetClass
     {

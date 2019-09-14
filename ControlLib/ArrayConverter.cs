@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace libZoi
+namespace Azure.LibCollection.CS
 {
     public static class ArrayConv
     {

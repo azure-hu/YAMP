@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" InitialTargets="BASS_redist_init;BASS_redist_init_2">
+  <PropertyGroup Label="Default initializers for properties">
+    <Linkage-BASS_redist Condition="'$(Linkage-BASS_redist)' == ''">dynamic</Linkage-BASS_redist>
+    <CallingConvention-BASS_redist Condition="'$(CallingConvention-BASS_redist)' == ''">cdecl</CallingConvention-BASS_redist>
+  </PropertyGroup>
+  <Target Name="BASS_redist_init">
+    <BASS_redist_Contains Text="Linkage-dynamic" Library="BASS_redist" Value="dynamic" Condition="'$(Linkage-BASS_redist)'==''">
+      <Output TaskParameter="Result" PropertyName="Linkage-BASS_redist" />
+    </BASS_redist_Contains>
+    <BASS_redist_Contains Text="Linkage-static" Library="BASS_redist" Value="static" Condition="'$(Linkage-BASS_redist)'==''">
+      <Output TaskParameter="Result" PropertyName="Linkage-BASS_redist" />
+    </BASS_redist_Contains>
+    <BASS_redist_Contains Text="Linkage-ltcg" Library="BASS_redist" Value="ltcg" Condition="'$(Linkage-BASS_redist)'==''">
+      <Output TaskParameter="Result" PropertyName="Linkage-BASS_redist" />
+    </BASS_redist_Contains>
+    <BASS_redist_Contains Text="Linkage-sxs" Library="BASS_redist" Value="sxs" Condition="'$(Linkage-BASS_redist)'==''">
+      <Output TaskParameter="Result" PropertyName="Linkage-BASS_redist" />
+    </BASS_redist_Contains>
+    <BASS_redist_Contains Text="CallingConvention-cdecl" Library="BASS_redist" Value="cdecl" Condition="'$(CallingConvention-BASS_redist)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConvention-BASS_redist" />
+    </BASS_redist_Contains>
+    <BASS_redist_Contains Text="CallingConvention-stdcall" Library="BASS_redist" Value="stdcall" Condition="'$(CallingConvention-BASS_redist)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConvention-BASS_redist" />
+    </BASS_redist_Contains>
+    <BASS_redist_Contains Text="CallingConvention-fastcall" Library="BASS_redist" Value="fastcall" Condition="'$(CallingConvention-BASS_redist)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConvention-BASS_redist" />
+    </BASS_redist_Contains>
+    <BASS_redist_Contains Text="CallingConvention-thiscall" Library="BASS_redist" Value="thiscall" Condition="'$(CallingConvention-BASS_redist)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConvention-BASS_redist" />
+    </BASS_redist_Contains>
+    <BASS_redist_Contains Text="CallingConvention-clrcall" Library="BASS_redist" Value="clrcall" Condition="'$(CallingConvention-BASS_redist)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConvention-BASS_redist" />
+    </BASS_redist_Contains>
+  </Target>
+  <Target Name="BASS_redist_init_2">
+    <SetEnv Condition="'$(Platform.ToLower())' == 'win32'" Name="PATH" Prefix="true" Value="$(MSBuildThisFileDirectory)../..//build/native/bin/Win32">
+      <Output TaskParameter="OutputEnvironmentVariable" PropertyName="PATH" />
+    </SetEnv>
+    <SetEnv Condition="'$(Platform.ToLower())' == 'x64'" Name="PATH" Prefix="true" Value="$(MSBuildThisFileDirectory)../..//build/native/bin/x64">
+      <Output TaskParameter="OutputEnvironmentVariable" PropertyName="PATH" />
+    </SetEnv>
+  </Target>
+  <ItemGroup Label="Win32" Condition="'$(Platform.ToLower())' == 'win32'">
+    <None Include="$(MSBuildThisFileDirectory)../..//build/native/bin/Win32\bass.dll" Condition="(('$(AppContainerApplication.ToLower())' == 'true')) OR (('$(TargetPlatformIdentifier.ToLower())' == 'windows phone' And '$(TargetPlatformVersion)' == '8.0'))">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+  </ItemGroup>
+  <ItemGroup Label="x64" Condition="'$(Platform.ToLower())' == 'x64'">
+    <None Include="$(MSBuildThisFileDirectory)../..//build/native/bin/x64\bass.dll" Condition="(('$(AppContainerApplication.ToLower())' == 'true')) OR (('$(TargetPlatformIdentifier.ToLower())' == 'windows phone' And '$(TargetPlatformVersion)' == '8.0'))">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PropertyPageSchema Include="$(MSBuildThisFileDirectory)\default-propertiesui.xml" />
+  </ItemGroup>
+  <Target Name="BASS_redist_AfterBuild" AfterTargets="AfterBuild" />
+  <Target Name="BASS_redist_AfterBuild_Win32" Label="Win32" Condition="'$(Platform.ToLower())' == 'win32'" AfterTargets="BASS_redist_AfterBuild">
+    <Copy SourceFiles="$(MSBuildThisFileDirectory)../..//build/native/bin/Win32\bass.dll" DestinationFolder="$(TargetDir)" SkipUnchangedFiles="true" />
+  </Target>
+  <Target Name="BASS_redist_AfterBuild_x64" Label="x64" Condition="'$(Platform.ToLower())' == 'x64'" AfterTargets="BASS_redist_AfterBuild">
+    <Copy SourceFiles="$(MSBuildThisFileDirectory)../..//build/native/bin/x64\bass.dll" DestinationFolder="$(TargetDir)" SkipUnchangedFiles="true" />
+  </Target>
+  <UsingTask TaskName="BASS_redist_Contains" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll" TaskFactory="CodeTaskFactory">
+    <ParameterGroup>
+      <Text Output="false" ParameterType="System.String" />
+      <Library Output="false" Required="true" ParameterType="System.String" />
+      <Value Output="false" Required="true" ParameterType="System.String" />
+      <Result Output="true" ParameterType="System.String" />
+    </ParameterGroup>
+    <Task>
+      <Code>Result = ((Text ?? "").Split(';').Contains(Library) ) ? Value : String.Empty;</Code>
+    </Task>
+  </UsingTask>
+</Project>

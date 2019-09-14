@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
-using libZoi;
+using libVeronicka;
 using System.Threading;
 
 namespace SplainNET
@@ -50,12 +50,16 @@ namespace SplainNET
 
         ~Form1()
         {
-            BassEngine.Clean();
+            AudioEngine.Clean();
         }
 
         private void InitBass()
         {
-            BassEngine.Init(".\\AudioLib");
+            if (!AudioEngine.Init(string.Format("{0}\\AudioLib_{1}", AudioEngine.AssemblyDirectory, AudioEngine.ProcessorArchitecture)))
+            {
+                System.Diagnostics.Process proc = System.Diagnostics.Process.GetCurrentProcess();
+                proc.Kill();
+            }
         }
 
         private Boolean InitGui()
@@ -161,7 +165,7 @@ namespace SplainNET
 
         private void StartListening(bool record, string recFile)
         {
-            isPlaying = BassEngine.ListenInternetStream(this, FmTitle,
+            isPlaying = AudioEngine.ListenInternetStream(this, FmTitle,
                 StrUrl, StrTitle, 3, record, recFile);
             if (isPlaying)
             {
@@ -187,7 +191,7 @@ namespace SplainNET
         private void StopListening()
         {
             MessBroadcast.StopMSNBroadCast();
-            BassEngine.ShutDownNet();
+            AudioEngine.ShutDownNet();
             FireWorks.StopDraw();
             visBox.Image = new Bitmap(visBox.Width, visBox.Height);
             this.Text = this.FmTitle;
@@ -230,8 +234,8 @@ namespace SplainNET
         {
             StopListening();
             visBox.Image = null;
-            BassEngine.ShutDownNet();
-            BassEngine.Wipe();
+            AudioEngine.ShutDownNet();
+            AudioEngine.Wipe();
         }
 
         

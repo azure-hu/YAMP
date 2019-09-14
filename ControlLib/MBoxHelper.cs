@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
 
-namespace libZoi
+namespace Azure.LibCollection.CS
 {
     public static class MBoxHelper
     {
