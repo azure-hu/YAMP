@@ -100,14 +100,14 @@ namespace Azure.MediaUtils
 		}
 
 		// Public implementation of Dispose pattern callable by consumers.
-		public void Dispose()
+		public new void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
         }
 
         // Private implementation of Dispose pattern.
-        private void Dispose(bool disposing)
+        private new void Dispose(bool disposing)
         {
             if (disposed)
                 return;

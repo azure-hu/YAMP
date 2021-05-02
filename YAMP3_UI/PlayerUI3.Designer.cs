@@ -1368,8 +1368,8 @@
 			this.playListView.BackgroundImage = global::Azure.YAMP.Properties.Resources.brushedMetal1;
 			this.playListView.BackgroundImageTiled = true;
 			this.playListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.titleHeader,
             this.artistHeader,
+            this.titleHeader,
             this.durationHeader});
 			this.playListView.Controls.Add(this.loadingLabel);
 			this.playListView.Font = new System.Drawing.Font("Lucida Sans Unicode", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));

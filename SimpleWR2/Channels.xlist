@@ -1,4 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<channels>
-  <channel name="mr2 Petofi (mp3)" url="http://mr-stream.mediaconnect.hu/4738/mr2.mp3" />
-</channels>
+<WR:channels xmlns:WR="urn:Azure.SimpleWR2.V3">
+  <channel name="ARD HR | HR 3" order="1"  codec="MP3" bitrate="128">
+    <url>https://hr-hr3-live.sslcast.addradio.de/hr/hr3/live/mp3/128/stream.mp3</url>
+  </channel>
+  <channel name="ARD HR | YOU FM" order="2"  codec="MP3" bitrate="128">
+    <url>https://hr-youfm-live.sslcast.addradio.de/hr/youfm/live/mp3/128/stream.mp3</url>
+  </channel>
+  <channel name="ARD NDR | N-Joy" order="3"  codec="MP3" bitrate="128">
+    <url>https://ndr-njoy-live.sslcast.addradio.de/ndr/njoy/live/mp3/128/stream.mp3</url>
+  </channel>
+  <channel name="ARD WDR | 1Live" order="4"  codec="MP3" bitrate="128">
+    <url>http://wdr-1live-live.icecast.wdr.de/wdr/1live/live/mp3/128/stream.mp3</url>
+  </channel>
+  <channel name="ARD WDR | 1Live Diggi" order="5"  codec="MP3" bitrate="128">
+    <url>http://wdr-1live-diggi.icecast.wdr.de/wdr/1live/diggi/mp3/128/stream.mp3</url>
+  </channel>
+  <channel name="ARD SWR | DASDING" order="6"  codec="MP3" bitrate="128">
+    <url>https://swr-dasding-live.sslcast.addradio.de/swr/dasding/live/mp3/128/stream.mp3</url>
+  </channel>
+  <channel name="ARD MDR | MDR Jump" order="7"  codec="MP3" bitrate="128">
+    <url>https://mdr-jump-live.sslcast.addradio.de/mdr/jump/live/mp3/128/stream.mp3</url>
+  </channel>
+  <channel name="ARD MDR | Sputnik" order="8"  codec="MP3" bitrate="128">
+    <url>https://mdr-sputnik-live.sslcast.addradio.de/mdr/sputnik/live/mp3/128/stream.mp3</url>
+  </channel>
+  <channel name="ARD BR | Bayern 3" order="9"  codec="MP3" bitrate="128">
+    <url>https://br-br3-live.sslcast.addradio.de/br/br3/live/mp3/128/stream.mp3</url>
+  </channel>
+  <channel name="ARD BR | Puls" order="10" codec="MP3" bitrate="128">
+    <url>https://br-puls-live.sslcast.addradio.de/br/puls/live/mp3/128/stream.mp3</url>
+  </channel>
+  <channel name="MR2 Petőfi" order="11" codec="MP3" bitrate="128">
+    <url>http://mr-stream.mediaconnect.hu/4738/mr2.mp3</url>
+  </channel>
+  <channel name="Rise FM Classic" order="12">
+    <url>https://stream1.virtualisan.net/prx/8080/risefm_classic_hq</url>
+    <tracklist_url format="JSON">https://player.risefm.hu/channelsdata/history/classic.json</tracklist_url>
+  </channel>
+  <channel name="Rise FM Hit House" order="13">
+    <url>https://stream1.virtualisan.net/prx/8080/risefm_hithouse_hq</url>
+    <tracklist_url format="JSON">https://player.risefm.hu/channelsdata/history/hithouse.json</tracklist_url>
+  </channel>
+  <channel name="Rise FM Deep House" order="14">
+    <url>https://stream1.virtualisan.net/prx/8080/risefm_deephouse_hq</url>
+    <tracklist_url format="JSON">https://player.risefm.hu/channelsdata/history/deephouse.json</tracklist_url>
+  </channel>
+  <channel name="Rise FM RnB" order="15">
+    <url>https://stream1.virtualisan.net/prx/8080/risefm_rnb_hq</url>
+    <tracklist_url format="JSON">https://player.risefm.hu/channelsdata/history/rnb.json</tracklist_url>
+  </channel>
+</WR:channels>

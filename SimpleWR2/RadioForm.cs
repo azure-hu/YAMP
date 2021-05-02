@@ -6,8 +6,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 using System.Xml;
+using System.Xml.Schema;
+using System.Xml.Serialization;
 
 namespace SimpleWR2
 {
@@ -15,7 +20,9 @@ namespace SimpleWR2
 	{
 		private IContainer components = null;
 
-		private Dictionary<string, string> _channels;
+		private channel_type[] _channels;
+
+        private channel_type selectedChannel;
 
 		private bool dragging;
 
@@ -55,9 +62,10 @@ namespace SimpleWR2
 
 		private Button minimiseBtn;
 
-		private ComboBox comboBox1;
+		private ComboBox channelCombo;
 
 		private ProgressBar progressBar1;
+
 		private AudioEngine ae;
 
 		public RadioForm()
@@ -88,41 +96,90 @@ namespace SimpleWR2
                 proc.Kill();
             }
             else
-			{
-				XmlReader xmlReader = XmlReader.Create(string.Format("{0}\\Channels.xList", Program.AssemblyDirectory));
-				this._channels = new Dictionary<string, string>();
-				while (xmlReader.Read())
-				{
-					if ((xmlReader.NodeType != XmlNodeType.Element || !(xmlReader.Name == "channel") ? false : xmlReader.HasAttributes))
-					{
-						this._channels.Add(xmlReader.GetAttribute("name"), xmlReader.GetAttribute("url"));
-					}
-				}
-				foreach (object obj in this._channels.Keys)
-				{
-					this.comboBox1.Items.Add(obj);
-				}
+            {
+                string startChannel = SimpleWR2.Properties.Settings.Default.channel;
+                ParseChannelsList();
                 Point locationMainWindow = SimpleWR2.Properties.Settings.Default.locationMainWindow;
-				int x = locationMainWindow.X;
+                int x = locationMainWindow.X;
                 locationMainWindow = SimpleWR2.Properties.Settings.Default.locationMainWindow;
-				base.Location = new Point(x, locationMainWindow.Y);
+                base.Location = new Point(x, locationMainWindow.Y);
                 this.volBar.Value = SimpleWR2.Properties.Settings.Default.volumeLevel;
-				this.SetVolume(this.volBar);
-				ae.Visuals = new Visualizer(ref this.fxBox);
+                this.SetVolume(this.volBar);
+                ae.Visuals = new Visualizer(ref this.fxBox);
                 ae.Visuals.SetVisual(SimpleWR2.Properties.Settings.Default.visualType);
-				this.loadFx();
-				this.comboBox1.SelectedIndex = 0;
-			}
-		}
+                ae.Visuals.Set("drawFull", false);
+                this.loadFx();
+                SelectChannel(string.IsNullOrWhiteSpace(startChannel) ? _channels[0].name : startChannel);
+                if (selectedChannel == null)
+                {
+                    selectedChannel = _channels.FirstOrDefault();
+                }
+            }
+        }
 
-		private void BtnPlayClick(object sender, EventArgs e)
+        private void SelectChannel(string channelName)
+        {
+            int ix;
+            try
+            {
+                ix = Array.IndexOf(this._channels, this._channels.FirstOrDefault(c => c.name == channelName));
+            }
+            catch
+            {
+                ix = 0;
+            }
+
+            this.channelCombo.SelectedIndex = ix;
+        }
+
+        private void ParseChannelsList()
+        {
+            XmlDocument xml = new XmlDocument();
+            xml.Load(string.Format("{0}\\Channels.xList", Program.AssemblyDirectory));
+            Assembly myAssembly = Assembly.GetExecutingAssembly();
+            using (Stream schemaStream = myAssembly.GetManifestResourceStream("SimpleWR2.Channels.xsd"))
+            {
+                XmlSchema schema = XmlSchema.Read(schemaStream, null);
+                xml.Schemas.Add(schema);
+            }
+            ValidationEventHandler validEvHandler = new ValidationEventHandler(validateChannelsListCallBack);
+            xml.Validate(validEvHandler);
+            XmlReader reader = new XmlNodeReader(xml);
+            XmlSerializer serializer = new XmlSerializer(typeof(channels_type));
+            channels_type result = (channels_type)serializer.Deserialize(reader);
+
+            if (result.channels.Length > 0)
+            {
+                this.channelCombo.DataSource = null;
+                this._channels = result.channels.OrderBy(c => uint.Parse(c.order)).ToArray();
+                this.channelCombo.DataSource = this._channels;
+                this.channelCombo.DisplayMember = "name";
+                this.channelCombo.ValueMember = "url";
+            }
+            else
+            {
+                throw new ArgumentException("There are no channels specified in Channels.xlist file!");
+            }
+        }
+
+        private static void validateChannelsListCallBack(object sender, ValidationEventArgs args)
+        {
+            if (args.Severity == XmlSeverityType.Warning)
+                throw new Exception(string.Format("Warning: Matching schema not found.  No validation occurred." + args.Message));
+            else
+                throw new Exception(string.Format("Channel list validation error: " + args.Message));
+
+        }
+
+        private void BtnPlayClick(object sender, EventArgs e)
 		{
-			if (this.checkRec.Checked)
+            ae.InitOnlineStream(selectedChannel.url, this.checkRec.Checked);
+            if (this.checkRec.Checked)
 			{
 				SaveFileDialog saveFileDialog = new SaveFileDialog();
 				try
 				{
-					saveFileDialog.Filter = "All Supported|*.mp3;*.aac";
+					saveFileDialog.Filter = string.Format("Stream Format|*{0}", ChannelFormat.GetExtension(ae));
 					if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
 					{
 						ae.SetOutput(saveFileDialog.FileName);
@@ -157,11 +214,9 @@ namespace SimpleWR2
 			this.timerTag.Stop();
 			this.timerLevels.Stop();
 			ae.ShutDownNet();
-			PictureBox pictureBox = this.fxBox;
 			object obj = null;
 			Image image = (Image)obj;
 			this.fxBox.Image = (Image)obj;
-			pictureBox.BackgroundImage = image;
 			ProgressBar progressBar = this.progressBar1;
 			int num = 0;
 			int num1 = num;
@@ -181,10 +236,10 @@ namespace SimpleWR2
 			{
 				if (fxDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
 				{
-                    SimpleWR2.Properties.Settings.Default.backColor = fxDialog.GetColor("backColor");
-                    SimpleWR2.Properties.Settings.Default.baseColor = fxDialog.GetColor("baseColor");
-                    SimpleWR2.Properties.Settings.Default.peakColor = fxDialog.GetColor("peakColor");
-                    SimpleWR2.Properties.Settings.Default.holdColor = fxDialog.GetColor("holdColor");
+                    SimpleWR2.Properties.Settings.Default.backColor = fxDialog.GetColor("back");
+                    SimpleWR2.Properties.Settings.Default.baseColor = fxDialog.GetColor("base");
+                    SimpleWR2.Properties.Settings.Default.peakColor = fxDialog.GetColor("peak");
+                    SimpleWR2.Properties.Settings.Default.holdColor = fxDialog.GetColor("hold");
                     SimpleWR2.Properties.Settings.Default.Save();
 					this.loadFx();
 				}
@@ -207,11 +262,16 @@ namespace SimpleWR2
 			base.Close();
 		}
 
-		private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+		private void channelCombo_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			this.btnStop.PerformClick();
-			string _url = this._channels[((ComboBox)sender).SelectedItem.ToString()];
-			ae.InitOnlineStream(_url, this.checkRec.Checked);
+            ComboBox cb = (ComboBox)sender;
+            if (cb.DataSource != null && cb.SelectedItem != null)
+            {
+                this.btnStop.PerformClick();
+                selectedChannel = cb.SelectedItem as channel_type;
+                SimpleWR2.Properties.Settings.Default.channel = selectedChannel.name;
+                SimpleWR2.Properties.Settings.Default.Save();
+            }
 		}
 
 		protected override void Dispose(bool disposing)
@@ -258,7 +318,7 @@ namespace SimpleWR2
             this.timerLevels = new System.Windows.Forms.Timer(this.components);
             this.volCheck = new System.Windows.Forms.CheckBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.channelCombo = new System.Windows.Forms.ComboBox();
             this.minimiseBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
             this.fxBox = new System.Windows.Forms.PictureBox();
@@ -273,7 +333,7 @@ namespace SimpleWR2
             this.btnPlay.BackColor = System.Drawing.Color.Black;
             this.btnPlay.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnPlay.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnPlay.Location = new System.Drawing.Point(3, 34);
+            this.btnPlay.Location = new System.Drawing.Point(3, 64);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(75, 23);
             this.btnPlay.TabIndex = 16;
@@ -304,11 +364,10 @@ namespace SimpleWR2
             //
             // checkRec
             //
-            this.checkRec.Appearance = System.Windows.Forms.Appearance.Button;
             this.checkRec.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.checkRec.Location = new System.Drawing.Point(3, 63);
+            this.checkRec.Location = new System.Drawing.Point(5, 35);
             this.checkRec.Name = "checkRec";
-            this.checkRec.Size = new System.Drawing.Size(75, 24);
+            this.checkRec.Size = new System.Drawing.Size(73, 24);
             this.checkRec.TabIndex = 27;
             this.checkRec.Text = "Record";
             this.checkRec.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -382,6 +441,7 @@ namespace SimpleWR2
             this.button4.TabIndex = 24;
             this.button4.Text = "Opt";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Visible = false;
             //
             // button6
             //
@@ -416,7 +476,7 @@ namespace SimpleWR2
             // panel2
             //
             this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.channelCombo);
             this.panel2.Controls.Add(this.minimiseBtn);
             this.panel2.Controls.Add(this.closeBtn);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -428,17 +488,17 @@ namespace SimpleWR2
             this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MouseMovementHandler);
             this.panel2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.endDragging);
             //
-            // comboBox1
+            // channelCombo
             //
-            this.comboBox1.BackColor = System.Drawing.Color.Black;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.ForeColor = System.Drawing.Color.Silver;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(5, 3);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(303, 21);
-            this.comboBox1.TabIndex = 32;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.channelCombo.BackColor = System.Drawing.Color.Black;
+            this.channelCombo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.channelCombo.ForeColor = System.Drawing.Color.Silver;
+            this.channelCombo.FormattingEnabled = true;
+            this.channelCombo.Location = new System.Drawing.Point(5, 3);
+            this.channelCombo.Name = "channelCombo";
+            this.channelCombo.Size = new System.Drawing.Size(303, 21);
+            this.channelCombo.TabIndex = 32;
+            this.channelCombo.SelectedIndexChanged += new System.EventHandler(this.channelCombo_SelectedIndexChanged);
             //
             // minimiseBtn
             //
@@ -560,7 +620,7 @@ namespace SimpleWR2
 
 		private void SetVolume(object sender)
 		{
-			ae.ChangeChannelVolume((float)((TrackBar)sender).Value / (float)((TrackBar)sender).Maximum);
+			ae.PlaybackVolume = ((float)((TrackBar)sender).Value / (float)((TrackBar)sender).Maximum);
             SimpleWR2.Properties.Settings.Default.volumeLevel = ((TrackBar)sender).Value;
             SimpleWR2.Properties.Settings.Default.Save();
 		}
@@ -618,21 +678,21 @@ namespace SimpleWR2
 			{
 				case CheckState.Unchecked:
 				{
-					ae.ChangeChannelVolume(1f);
+					ae.PlaybackVolume = (1f);
 					break;
 				}
 				case CheckState.Checked:
 				{
-					ae.ChangeChannelVolume(0f);
+					ae.PlaybackVolume = (0f);
 					break;
 				}
 				case CheckState.Indeterminate:
 				{
-					ae.ChangeChannelVolume(0.5f);
+					ae.PlaybackVolume = (0.5f);
 					break;
 				}
 			}
-			this.volBar.Value = checked((int)Math.Floor((double)ae.ChannelVolume * 100));
+			this.volBar.Value = checked((int)Math.Floor((double)ae.PlaybackVolume * 100));
 		}
 	}
 }

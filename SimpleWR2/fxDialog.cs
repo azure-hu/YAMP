@@ -34,11 +34,11 @@ namespace SimpleWR2
 		public fxDialog(Visualizer vis)
 		{
 			this.InitializeComponent();
-			Color color = vis.GetColor("back");
+			Color color = vis.GetColor(Visualizer.VisualItem.Background);
 			this.btnBack.BackColor = (color == Color.Transparent ? Color.Black : color);
-			this.btnBase.BackColor = vis.GetColor("base");
-			this.btnPeak.BackColor = vis.GetColor("peak");
-			this.btnHold.BackColor = vis.GetColor("hold");
+			this.btnBase.BackColor = vis.GetColor(Visualizer.VisualItem.Base);
+			this.btnPeak.BackColor = vis.GetColor(Visualizer.VisualItem.Peak);
+			this.btnHold.BackColor = vis.GetColor(Visualizer.VisualItem.Hold);
 		}
 
 		protected override void Dispose(bool disposing)

@@ -4,11 +4,11 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
-    using System.Text;
 
     public static class Utils
     {
         private static bool Prepared;
+        public static string BassVersion { get; private set; }
         public static string AssemblyDirectory
         {
             get
@@ -24,6 +24,7 @@
         {
             if (!Utils.Prepared)
             {
+                //Un4seen.Bass.BassNet.Registration("flashmark@ymail.com", "2X1652019342222");
                 Un4seen.Bass.BassNet.Registration("zollai@outlook.com", "2X3924291824822");
                 Un4seen.Bass.BassNet.OmitCheckVersion = true;
                 Utils.Prepared = true;
@@ -73,12 +74,12 @@
                 .OrderBy(x => x);
         }
 
-		public static IEnumerable<String> FilterFiles(IEnumerable<String> files, String fileExtensions)
-		{
-			List<FileInfo> fileInfos = files.Where(f => File.Exists(f)).Select(f => new FileInfo(f)).ToList();
-			var extensions = fileExtensions.Split(';').Select(x => x.Replace("*", String.Empty));
-			return fileInfos.Where(fi => extensions.Contains(fi.Extension)).Select(fi => fi.FullName);
-		}
+        public static IEnumerable<String> FilterFiles(IEnumerable<String> files, String fileExtensions)
+        {
+            List<FileInfo> fileInfos = files.Where(f => File.Exists(f)).Select(f => new FileInfo(f)).ToList();
+            var extensions = fileExtensions.Split(';').Select(x => x.Replace("*", String.Empty));
+            return fileInfos.Where(fi => extensions.Contains(fi.Extension)).Select(fi => fi.FullName);
+        }
 
         private static byte[] ImageToByteArray(System.Drawing.Image imageIn)
         {
@@ -102,6 +103,16 @@
         public static System.Windows.Media.Imaging.BitmapImage BitmapImageFromImage(System.Drawing.Image image)
         {
             return Utils.BitmapImageFromBuffer(Utils.ImageToByteArray(image));
+        }
+
+        public static bool LoadBass(string modulePath)
+        {
+            bool isLoaded = Un4seen.Bass.Bass.LoadMe(modulePath);
+            if (isLoaded)
+            {
+                Utils.BassVersion = Un4seen.Bass.Bass.BASS_GetVersion().ToString();
+            }
+            return isLoaded;
         }
     }
 

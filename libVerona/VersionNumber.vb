@@ -7,9 +7,9 @@ Imports System
 Imports System.Reflection
 Imports System.Runtime.InteropServices
 
-<Assembly: AssemblyCompany("Azure «(o.O)»")>
-<Assembly: AssemblyCopyright("Copyright © Azure «(o.O)» 2010-2019")>
+<Assembly: AssemblyCompany("Azure's HQ")>
+<Assembly: AssemblyCopyright("Copyright © Azure «(o.O)» (zollai@outlook.com) 2010-2021")>
 <Assembly: AssemblyTrademark("")>
-<Assembly: AssemblyVersion("3.2019.0809.1252")>
-<Assembly: AssemblyFileVersion("3.2019.0809.1252")>
+<Assembly: AssemblyVersion("3.2021.0502.1936")>
+<Assembly: AssemblyFileVersion("3.2021.0502.1936")>
 

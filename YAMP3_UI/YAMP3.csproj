@@ -79,7 +79,7 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
@@ -104,7 +104,7 @@
     <ManifestTimestampUrl>http://timestamp.verisign.com/scripts/timstamp.dll</ManifestTimestampUrl>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>8E4AF9222840A3CE8BEDEC42A2F1F729D3FE5281</ManifestCertificateThumbprint>
@@ -392,6 +392,10 @@
     <ProjectReference Include="..\libVerona\ControlLibVB.vbproj">
       <Project>{676EE7BF-F1C5-41CD-9711-065CA5345E35}</Project>
       <Name>ControlLibVB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RiseSharp2021\RiseSharp2021.csproj">
+      <Project>{8b8211d4-967e-4d6b-a0f0-e00c4703d99b}</Project>
+      <Name>RiseSharp2021</Name>
     </ProjectReference>
     <ProjectReference Include="..\SimpleWR2\SimpleWR2.csproj">
       <Project>{c5dd27f4-5364-4dcb-908a-6100608057ce}</Project>

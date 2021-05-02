@@ -148,7 +148,7 @@ namespace Azure.MediaUtils
         }
 
         // Private implementation of Dispose pattern.
-        protected void Dispose(bool disposing)
+        protected virtual void Dispose(bool disposing)
         {
             if (disposed)
                 return;
@@ -186,9 +186,8 @@ namespace Azure.MediaUtils
 
         protected void DoRefresh()
         {
-            Utils.Prepare();
-            TAG_INFO tagInfo = BassTags.BASS_TAG_GetFromFile(this.FilePath, true, true);
-            this.title = (String.IsNullOrWhiteSpace(tagInfo.title) ? new FileInfo(this.FilePath).Name : tagInfo.title);
+            TAG_INFO tagInfo = BassTags.BASS_TAG_GetFromFile(this.FilePath, true, false);
+            this.title = tagInfo.title;
             this.artist = tagInfo.artist;
             this.durationSeconds = tagInfo.duration;
             if (!this.metaRead)

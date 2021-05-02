@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="channels" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:Azure.SimpleWR2.V3" xmlns:WR="urn:Azure.SimpleWR2.V3">
+  <xs:element name="channels" type="WR:channels_type">
+    <xs:unique name="uniquehannelName">
+      <xs:selector xpath="channel" />
+      <xs:field xpath="@name" />
+    </xs:unique>
+    <xs:unique name="uniqueChannelUrl">
+      <xs:selector xpath="channel" />
+      <xs:field xpath="url" />
+    </xs:unique>
+    <xs:unique name="uniqueOrder">
+      <xs:selector xpath="channel"></xs:selector>
+      <xs:field xpath="@order"></xs:field>
+    </xs:unique>
+  </xs:element>
+  <xs:complexType name="channels_type">
+    <xs:sequence>
+      <xs:element name="channel" type="WR:channel_type" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="channel_type">
+    <xs:sequence>
+      <xs:element name="url" type="xs:string" />
+      <xs:element name="tracklist_url" nillable="true" minOccurs="0" maxOccurs="1" type="WR:tracklist_type" />
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required"/>
+    <xs:attribute name="order" type="xs:positiveInteger" use="required"/>
+    <xs:attribute name="codec" type="WR:codecType" />
+    <xs:attribute name="bitrate" type="WR:bitrateType" />
+  </xs:complexType>
+  <xs:simpleType name="allowedUriType">
+    <xs:restriction base="xs:anyURI">
+      <xs:pattern value="https?://.+" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="codecType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MP3" />
+      <xs:enumeration value="AAC" />
+      <xs:enumeration value="OGG" />
+      <xs:enumeration value="OPUS" />
+      <xs:enumeration value="FLAC" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="bitrateType">
+    <xs:restriction base="xs:positiveInteger">
+      <xs:enumeration value="56" />
+      <xs:enumeration value="64" />
+      <xs:enumeration value="96" />
+      <xs:enumeration value="128" />
+      <xs:enumeration value="160" />
+      <xs:enumeration value="192" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="tracklist_type">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="format" type="WR:tracklist_format_type" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="tracklist_format_type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PlainText"/>
+      <xs:enumeration value="JSON"/>
+      <xs:enumeration value="XML"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

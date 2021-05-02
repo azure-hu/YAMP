@@ -35,14 +35,14 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>Azure.MediaUtils.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bass.Net">
-      <HintPath>..\un4seen\Bass24.Net\v4.0\Bass.Net.dll</HintPath>
+      <HintPath>..\Used_Libraries\lib\v4.0\Bass.Net.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
@@ -60,8 +60,9 @@
   <ItemGroup>
     <Compile Include="AudioEngine.cs" />
     <Compile Include="AudioFile.cs" />
+    <Compile Include="ChannelFormat.cs" />
     <Compile Include="EqualiserEngine.cs" />
-    <Compile Include="FireWorks.cs" />
+    <Compile Include="Visualizer.cs" />
     <Compile Include="Playlist.cs" />
     <Compile Include="PlaylistEntry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

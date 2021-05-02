@@ -1,15 +1,14 @@
-﻿using System;
+﻿using Azure.MediaUtils;
+using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Text.RegularExpressions;
-using System.Windows.Forms;
-using System.Collections;
-using System.Drawing;
-using System.Diagnostics;
-using System.Threading;
 using System.ComponentModel;
-using Azure.MediaUtils;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace Azure.YAMP
 {
@@ -21,6 +20,9 @@ namespace Azure.YAMP
         private int _lastKnownSelected = 0;
         private Guid SelectedGuid;
         private BackgroundWorker _bw;
+        private delegate void PlaylistViewBuilderDelegate(PlaylistEditMode editMode);
+        private readonly PlaylistViewBuilderDelegate playlistViewBuilderDelegate;
+
 
         public PlayList(ListView listView, PlayerUI3 parent)
         {
@@ -38,8 +40,107 @@ namespace Azure.YAMP
             //lw.MouseMove
             lv.MouseUp += this.MouseUp;
             lv.ItemSelectionChanged += this.SelectionChanged;
+            playlistViewBuilderDelegate = PlaylistViewBuilder2;
             _bw = new BackgroundWorker();
             _bw.DoWork += BuildPlaylistInBackground;
+        }
+
+        private void PlaylistViewBuilder2(PlaylistEditMode editMode)
+        {
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            var progress = p.playlistLoadingBar;
+            progress.Value = 0;
+            progress.Maximum = this.list.Count;
+            progress.Step = 1;
+            lv.BeginUpdate();
+            ListView.ListViewItemCollection lCollection = null;
+            if (editMode == PlaylistEditMode.ClearAll || editMode == PlaylistEditMode.LoadList)
+            {
+                lv.Items.Clear();
+                GC.Collect();
+                lCollection = new ListView.ListViewItemCollection(lv);
+            }
+            else
+            {
+                lCollection = lv.Items;
+            }
+            if (editMode == PlaylistEditMode.AddFiles || editMode == PlaylistEditMode.LoadList)
+            {
+                progress.Visible = true;
+                List<ListViewItem> items = new List<ListViewItem>();
+                foreach (PlaylistEntry mItem in this.list)
+                {
+                    ListViewItem _lvi = new ListViewItem(GetListItemData(mItem));
+                    items.Add(_lvi);
+                    progress.PerformStep();
+                    Application.DoEvents();
+                }
+
+                lCollection.AddRange(items.ToArray());
+                progress.Visible = false;
+            }
+            sw.Stop();
+            lv.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lv.EndUpdate();
+        }
+
+        private void PlaylistViewBuilder(PlaylistEditMode editMode)
+        {
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            var progress = p.playlistLoadingBar;
+            progress.Value = 0;
+            progress.Maximum = this.list.Count;
+            progress.Step = 1;
+            lv.BeginUpdate();
+            ListView.ListViewItemCollection lCollection = null;
+            if (editMode == PlaylistEditMode.ClearAll || editMode == PlaylistEditMode.LoadList)
+            {
+                lv.Items.Clear();
+                GC.Collect();
+                lCollection = new ListView.ListViewItemCollection(lv);
+            }
+            else
+            {
+                lCollection = lv.Items;
+            }
+            lv.EndUpdate();
+
+            lv.BeginUpdate();
+            if (editMode == PlaylistEditMode.AddFiles || editMode == PlaylistEditMode.LoadList)
+            {
+                progress.Visible = true;
+                List<ListViewItem> items = new List<ListViewItem>();
+                foreach (PlaylistEntry mItem in this.list)
+                {
+                    /*
+                    bool found = false;
+                    foreach (ListViewItem lvItem in lCollection)
+                    {
+                        if (lvItem.SubItems[5].Text == mItem.GUID.ToString())
+                        {
+                            found = true; break;
+                        }
+                    }
+
+                    if (!found)
+                    */
+                    {
+                        ListViewItem _lvi = new ListViewItem(GetListItemData(mItem));
+                        items.Add(_lvi);
+                    }
+                    progress.PerformStep();
+                    SetProgressBarText(progress, null);
+                    Application.DoEvents();
+                }
+                lCollection.AddRange(items.ToArray());
+                progress.Visible = false;
+            }
+            sw.Stop();
+            MessageBox.Show(sw.Elapsed.ToString());
+            lv.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            lv.EndUpdate();
         }
 
         public List<string> LoadFromDir(string[] directoryName, bool recursive, int counter, PlaylistEditMode editMode)
@@ -125,11 +226,11 @@ namespace Azure.YAMP
             {
                 if (files != null)
                 {
-					var filtered = Utils.FilterFiles(files, this.p.SupportedFileExtensions);
+                    var filtered = Utils.FilterFiles(files, this.p.SupportedFileExtensions);
 
-					foreach (string aElement in filtered)
+                    foreach (string aElement in filtered)
                     {
-						Container.Add(new PlaylistEntry(aElement));
+                        Container.Add(new PlaylistEntry(aElement));
                     }
                 }
                 return true;
@@ -289,7 +390,7 @@ namespace Azure.YAMP
 
             foreach (ListViewItem item in lv.Items)
             {
-				PlaylistEntry _newItem = new PlaylistEntry(item.SubItems[3].Text, item.SubItems[4].Text);
+                PlaylistEntry _newItem = new PlaylistEntry(item.SubItems[3].Text, item.SubItems[4].Text);
                 ++i;
                 _newLoaded.Add(_newItem);
             }
@@ -310,8 +411,11 @@ namespace Azure.YAMP
             */
             lv.Invoke((MethodInvoker)delegate
             {
-                lv.Items[index].Selected = true;
-                lv.EnsureVisible(index);
+                if (lv.Items.Count > index)
+                {
+                    lv.Items[index].Selected = true;
+                    lv.EnsureVisible(index);
+                }
             });
             //lw.Items[index].Focused = true;
             //lw.Focus();
@@ -320,117 +424,63 @@ namespace Azure.YAMP
 
         public void RebuildListView(PlaylistEditMode editMode)
         {
-            Stopwatch sw = new Stopwatch();
-            lv.Invoke((MethodInvoker)delegate
-            {
-				sw.Start();
-				var progress = p.playlistLoadingBar;
-				progress.Value = 0;
-				progress.Maximum = this.list.Count;
-				progress.Step = 1;
-				lv.BeginUpdate();
-				ListView.ListViewItemCollection lCollection = null;
-                if (editMode == PlaylistEditMode.ClearAll || editMode == PlaylistEditMode.LoadList)
-                {
-                    lv.Items.Clear();
-                    GC.Collect();
-                    lCollection = new ListView.ListViewItemCollection(lv);
-                }
-                else
-                {
-                    lCollection = lv.Items;
-                }
-                if (editMode == PlaylistEditMode.AddFiles || editMode == PlaylistEditMode.LoadList)
-                {
-					progress.Visible = true;
-					List<ListViewItem> items = new List<ListViewItem>();
-                    foreach (PlaylistEntry mItem in this.list)
-                    {
-						/*
-                        bool found = false;
-                        foreach (ListViewItem lvItem in lCollection)
-                        {
-                            if (lvItem.SubItems[5].Text == mItem.GUID.ToString())
-                            {
-                                found = true; break;
-                            }
-                        }
-
-                        if (!found)
-						*/
-                        {
-                            ListViewItem _lvi = new ListViewItem(GetListItemData(mItem));
-                            items.Add(_lvi);
-                        }
-						progress.PerformStep();
-						SetProgressBarText(progress, null);
-                        Application.DoEvents();
-                    }
-					lCollection.AddRange(items.ToArray());
-					progress.Visible = false;
-				}
-				sw.Stop();
-				//MessageBox.Show(sw.Elapsed.ToString());
-				lv.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-				lv.EndUpdate();
-			});
+            lv.Invoke(playlistViewBuilderDelegate, editMode);
         }
 
         private string[] GetListItemData(PlaylistEntry mItem)
         {
             string[] _lviData =     {
-											mItem.Title,
-											mItem.Artist,
+                                            mItem.Artist,
+                                            mItem.Title,
                                             mItem.DurationText,
-											new FileInfo(mItem.FilePath).Name,
                                             mItem.FilePath,
-											mItem.GUID.ToString()
-										};
+                                            mItem.GUID.ToString()
+                                        };
             return _lviData;
         }
 
-		/// <summary>
-		/// Adds text into a System.Windows.Forms.ProgressBar
-		/// </summary>
-		/// <param name="Target">The target progress bar to add text into</param>
-		/// <param name="Text">The text to add into the progress bar.
-		/// Leave null or empty to automatically add the percent.</param>
-		private void SetProgressBarText
-			(
-			System.Windows.Forms.ProgressBar Target, //The target progress bar
-			string Text //The text to show in the progress bar
-			)
-		{
+        /// <summary>
+        /// Adds text into a System.Windows.Forms.ProgressBar
+        /// </summary>
+        /// <param name="Target">The target progress bar to add text into</param>
+        /// <param name="Text">The text to add into the progress bar.
+        /// Leave null or empty to automatically add the percent.</param>
+        private void SetProgressBarText
+            (
+            System.Windows.Forms.ProgressBar Target, //The target progress bar
+            string Text //The text to show in the progress bar
+            )
+        {
 
-			//Make sure we didn't get a null progress bar
-			if (Target == null) { throw new ArgumentException("Null Target"); }
+            //Make sure we didn't get a null progress bar
+            if (Target == null) { throw new ArgumentException("Null Target"); }
 
-			//Now we can get to the real code
+            //Now we can get to the real code
 
-			//Check to see if we are to add in the percent
-			if (string.IsNullOrEmpty(Text))
-			{
-				Text = string.Format("{0} / {1}", Target.Value, Target.Maximum);
-			}
+            //Check to see if we are to add in the percent
+            if (string.IsNullOrEmpty(Text))
+            {
+                Text = string.Format("{0} / {1}", Target.Value, Target.Maximum);
+            }
 
-			//Now we can add in the text
+            //Now we can add in the text
 
-			//gr will be the graphics object we use to draw on Target
-			using (Graphics gr = Target.CreateGraphics())
-			{
-				Font TextFont = new Font(FontFamily.GenericSansSerif, 8F);
-				gr.DrawString(Text,TextFont, new SolidBrush(Color.Black),
-					//Where we will draw it
-					new PointF(
-						Target.Width / 2 - (gr.MeasureString(Text, //Centered
-						TextFont).Width / 2.0F),
-					// Y Location (This is the same regardless of Location)
-					Target.Height / 2 - (gr.MeasureString(Text,
-						TextFont).Height / 2.0F)));
-			}
-		}
+            //gr will be the graphics object we use to draw on Target
+            using (Graphics gr = Target.CreateGraphics())
+            {
+                Font TextFont = new Font(FontFamily.GenericSansSerif, 8F);
+                gr.DrawString(Text, TextFont, new SolidBrush(Color.Black),
+                    //Where we will draw it
+                    new PointF(
+                        Target.Width / 2 - (gr.MeasureString(Text, //Centered
+                        TextFont).Width / 2.0F),
+                    // Y Location (This is the same regardless of Location)
+                    Target.Height / 2 - (gr.MeasureString(Text,
+                        TextFont).Height / 2.0F)));
+            }
+        }
 
-	public static void SaveList(string FileName, PlayListFormat format, IEnumerable<String> filePaths)
+        public static void SaveList(string FileName, PlayListFormat format, IEnumerable<String> filePaths)
         {
             if (File.Exists(FileName))
             {
@@ -519,7 +569,9 @@ namespace Azure.YAMP
                             }
                         }
                         else
+                        {
                             break;
+                        }
                     }
                     else
                     {
@@ -554,12 +606,12 @@ namespace Azure.YAMP
             _lastKnownSelected = -1;
         }
 
-        internal void UpdateInfo(int currentIndex, string title, string artist, string duration)
+        internal void UpdateInfo(int currentIndex, string artist, string title, string duration)
         {
             ListViewItem _lvi = lv.Items[currentIndex];
-            _lvi.SubItems[0].Text = title;
-			_lvi.SubItems[1].Text = artist;
-			_lvi.SubItems[2].Text = duration;
+            _lvi.SubItems[0].Text = artist;
+            _lvi.SubItems[1].Text = title;
+            _lvi.SubItems[2].Text = duration;
         }
     }
 

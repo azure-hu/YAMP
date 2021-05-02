@@ -306,7 +306,7 @@ namespace Azure.YAMP
 		#region assistMethods
 
 		[System.Runtime.InteropServices.DllImport("uxtheme", ExactSpelling = true, CharSet = CharSet.Unicode)]
-		public extern static Int32 SetWindowTheme(IntPtr hWnd,
+		private extern static Int32 SetWindowTheme(IntPtr hWnd,
 					  String textSubAppName, String textSubIdList);
 
 		#endregion assistMethods
@@ -1012,7 +1012,7 @@ namespace Azure.YAMP
 				mainLabel.DuplicateIf();
 				coverBox.Image = _current.AlbumArtwork;
 
-				playList.UpdateInfo(currentIndex, _current.Title, _current.Artist, _current.DurationText);
+				playList.UpdateInfo(currentIndex, _current.Artist, _current.Title, _current.DurationText);
 
 				return true;
 			}
@@ -1364,8 +1364,8 @@ namespace Azure.YAMP
 		private void ChangeVisualSettings()
 		{
 			visSetWnd visSelect = new visSetWnd((byte)ae.Visuals.GetVSType, ae.Visuals.GetTimerInterval(),
-				new Color[] {ae.Visuals.GetColor("base"), ae.Visuals.GetColor("peak"),
-					ae.Visuals.GetColor("hold"), this.seekBar.BarColor}, yamp.Default.UseDigitFont);
+				new Color[] {ae.Visuals.GetColor(Visualizer.VisualItem.Base), ae.Visuals.GetColor(Visualizer.VisualItem.Peak),
+					ae.Visuals.GetColor(Visualizer.VisualItem.Hold), this.seekBar.BarColor}, yamp.Default.UseDigitFont);
 			if (visSelect.ShowDialog() == DialogResult.OK)
 			{
 				ae.Visuals.SetVisual(visSelect.visMode);
@@ -1387,9 +1387,9 @@ namespace Azure.YAMP
 				{
 					yamp.Default.VisualSetting = visSelect.visMode;
 					yamp.Default.VisTime = ae.Visuals.GetTimerInterval();
-					yamp.Default.VisColorBottom = ae.Visuals.GetColor("base");
-					yamp.Default.VisColorTop = ae.Visuals.GetColor("peak");
-					yamp.Default.VisColorHold = ae.Visuals.GetColor("hold");
+					yamp.Default.VisColorBottom = ae.Visuals.GetColor(Visualizer.VisualItem.Base);
+					yamp.Default.VisColorTop = ae.Visuals.GetColor(Visualizer.VisualItem.Peak);
+					yamp.Default.VisColorHold = ae.Visuals.GetColor(Visualizer.VisualItem.Hold);
 					yamp.Default.SeekBarColor = this.seekBar.BarColor;
 					yamp.Default.UseDigitFont = useDigitFont;
 					yamp.Default.Save();
@@ -1404,18 +1404,18 @@ namespace Azure.YAMP
 
 		private void SetAudioVolume(float value)
 		{
-			ae.ChangeChannelVolume(value);
+			ae.PlaybackVolume = value;
 			SetVolumeText();
 			if (!startup && SettingsExist)
 			{
-				yamp.Default.VolumeLevel = ae.ChannelVolume;
+				yamp.Default.VolumeLevel = ae.PlaybackVolume;
 				yamp.Default.Save();
 			}
 		}
 
 		private void SetVolumeText()
 		{
-			volLabel.Text = ((int)Math.Round(ae.ChannelVolume * 100, MidpointRounding.AwayFromZero)).ToString() + "%";
+			volLabel.Text = ((int)Math.Round(ae.PlaybackVolume * 100, MidpointRounding.AwayFromZero)).ToString() + "%";
 		}
 
 		private void SetOpacity(object sender, LBSoft.IndustrialCtrls.Knobs.LBKnobEventArgs e)

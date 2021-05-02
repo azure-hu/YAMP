@@ -52,7 +52,7 @@
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
-    <LangVersion>5</LangVersion>
+    <LangVersion>6</LangVersion>
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -64,12 +64,12 @@
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <LangVersion>5</LangVersion>
+    <LangVersion>6</LangVersion>
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>Azure.LibCollection.CS.pfx</AssemblyOriginatorKeyFile>
@@ -83,6 +83,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -102,10 +103,76 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\ColorProgressBarDesigner.cs" />
+    <Compile Include="Controls\CyotekColorPicker\ColorBarStyle.cs" />
+    <Compile Include="Controls\CyotekColorPicker\ColorCellBorderStyle.cs" />
+    <Compile Include="Controls\CyotekColorPicker\ColorCollection.cs" />
+    <Compile Include="Controls\CyotekColorPicker\ColorCollectionEventArgs.cs" />
+    <Compile Include="Controls\CyotekColorPicker\ColorCollectionSortOrder.cs" />
+    <Compile Include="Controls\CyotekColorPicker\ColorComparer.cs" />
+    <Compile Include="Controls\CyotekColorPicker\ColorEditingMode.cs" />
+    <Compile Include="Controls\CyotekColorPicker\ColorEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CyotekColorPicker\ColorEditor.Designer.cs">
+      <DependentUpon>ColorEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CyotekColorPicker\ColorEditorManager.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CyotekColorPicker\ColorGrid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CyotekColorPicker\ColorGridSelectedCellStyle.cs" />
+    <Compile Include="Controls\CyotekColorPicker\ColorHitTestInfo.cs" />
+    <Compile Include="Controls\CyotekColorPicker\ColorPalette.cs" />
+    <Compile Include="Controls\CyotekColorPicker\ColorPalettes.cs" />
+    <Compile Include="Controls\CyotekColorPicker\ColorPickerDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\CyotekColorPicker\ColorPickerDialog.Designer.cs">
+      <DependentUpon>ColorPickerDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CyotekColorPicker\ColorSlider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CyotekColorPicker\ColorSliderNubStyle.cs" />
+    <Compile Include="Controls\CyotekColorPicker\ColorSource.cs" />
+    <Compile Include="Controls\CyotekColorPicker\ColorWheel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CyotekColorPicker\EditColorCancelEventArgs.cs" />
+    <Compile Include="Controls\CyotekColorPicker\HslColor.cs" />
+    <Compile Include="Controls\CyotekColorPicker\HueColorSlider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CyotekColorPicker\IColorEditor.cs" />
+    <Compile Include="Controls\CyotekColorPicker\IPaletteSerializer.cs" />
+    <Compile Include="Controls\CyotekColorPicker\LightnessColorSlider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CyotekColorPicker\NativeMethods.cs" />
+    <Compile Include="Controls\CyotekColorPicker\NavigationOrigin.cs" />
+    <Compile Include="Controls\CyotekColorPicker\PaletteSerializer.cs" />
+    <Compile Include="Controls\CyotekColorPicker\Resources1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CyotekColorPicker\RgbaChannel.cs" />
+    <Compile Include="Controls\CyotekColorPicker\RgbaColorSlider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CyotekColorPicker\SaturationColorSlider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CyotekColorPicker\ScreenColorPicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\FusionTrackBar.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\InsertionMode.cs" />
+    <Compile Include="Controls\LedMatrixControl.cs" />
     <Compile Include="Controls\ListViewEx.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -132,6 +199,7 @@
     <Compile Include="Controls\NativeMethods.cs" />
     <Compile Include="NetClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AudioWorks\StreamMode.cs" />
     <Compile Include="AudioWorks\TagReader.cs" />
     <Compile Include="AudioWorks\TagProperty.cs" />
     <Compile Include="AudioWorks\TagReadOnly.cs" />
@@ -148,6 +216,11 @@
     <Compile Include="Controls\TrackDrawModeEditor.cs" />
     <Compile Include="Controls\TransparentPanel.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Utils\ColorMng.cs" />
     <Compile Include="Utils\MathFunc.cs" />
@@ -175,11 +248,27 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controls\CyotekColorPicker\ColorEditor.resx">
+      <DependentUpon>ColorEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CyotekColorPicker\ColorPickerDialog.resx">
+      <DependentUpon>ColorPickerDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CyotekColorPicker\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Knob\LBKnob.resx">
       <DependentUpon>LBKnob.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AudioWorks\tagWnd.resx">
       <DependentUpon>tagWnd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -200,6 +289,15 @@
       <Project>{6b143a39-c7b2-4743-9917-92262c60e9a6}</Project>
       <Name>taglib-sharp</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\CyotekColorPicker\Resources\cellbackground.png" />
+    <EmbeddedResource Include="Controls\CyotekColorPicker\Resources\eyedropper.cur" />
+    <EmbeddedResource Include="Controls\CyotekColorPicker\Resources\eyedropper.png" />
+    <EmbeddedResource Include="Controls\CyotekColorPicker\Resources\palette-load.png" />
+    <EmbeddedResource Include="Controls\CyotekColorPicker\Resources\palette-save.png" />
+    <Content Include="Controls\LedIcon.ico" />
+    <EmbeddedResource Include="Controls\LedMatrixSymbolFile.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

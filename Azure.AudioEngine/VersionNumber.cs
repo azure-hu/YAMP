@@ -5,10 +5,10 @@
 
 using System.Reflection;
 
-[assembly: AssemblyCompany("Azure «(o.O)»")]
-[assembly: AssemblyCopyright( "Copyright © Azure «(o.O)» 2010-2019" )]
+[assembly: AssemblyCompany("Azure's HQ")]
+[assembly: AssemblyCopyright( "Copyright © Azure «(o.O)» (zollai@outlook.com) 2010-2021" )]
 [assembly: AssemblyTrademark( "" )]
 
-[assembly: AssemblyVersion("3.2019.0809.1252")]
-//[assembly: AssemblyFileVersion("3.2019.0809.1252d")]
-[assembly: AssemblyFileVersion("3.2019.0809.1252")]
+[assembly: AssemblyVersion("3.2021.0502.1936")]
+//[assembly: AssemblyFileVersion("3.2021.0502.1936d")]
+[assembly: AssemblyFileVersion("3.2021.0502.1936")]

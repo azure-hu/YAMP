@@ -6,8 +6,8 @@
 
 using System.Reflection;
 
-[assembly: AssemblyCompany("Azure «(o.O)»")]
-[assembly: AssemblyCopyright( "Copyright © Azure «(o.O)» 2010-<#= this.CurrentYear #>" )]
+[assembly: AssemblyCompany("Azure's HQ")]
+[assembly: AssemblyCopyright( "Copyright © Azure «(o.O)» (zollai@outlook.com) 2010-<#= this.CurrentYear #>" )]
 [assembly: AssemblyTrademark( "" )]
 
 [assembly: AssemblyVersion("<#= this.MajorVersion #>.<#= this.MinorVersion #>.<#= this.BuildNumber #>.<#= this.RevisionNumber #>")]
